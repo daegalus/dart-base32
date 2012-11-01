@@ -1,0 +1,4 @@
+/packages
+/test/packages
+/.project
+/pubspec.lock
