@@ -1,0 +1,9 @@
+name: base32
+version: 0.0.1
+description: >
+  Base32 Encoder and Decoder
+author: Yulian Kuncheff <yulian@kuncheff.com>
+homepage: https://github.com/Daegalus/dart-base32
+dependencies:
+  unittest:
+    sdk: unittest
