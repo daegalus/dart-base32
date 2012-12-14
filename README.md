@@ -1,6 +1,3 @@
-*PLEASE NOTE: THERE IS A BREAKING API CHANGE IN v0.0.8+ .*
-Due to a required change of the optional parameter syntax and requirements, I made all my optional paramaters named over having them positional. So you need to prepend the name of the parameter if you are using optional parameters. Please check the examples.
-
 # dart-base32
 
 Simple base32 encode/decode matching the base32 method used by Google Authenticator.
@@ -49,6 +46,7 @@ b32.encodeHexString('48656c6c6f21deadbeef'); // -> 'JBSWY3DPEHPK3PXP'
 
 // base32 decoding to original string.
 b32.decode("JBSWY3DPEHPK3PXP"); // -> '48656c6c6f21deadbeef'
+```
 
 ## API
 
