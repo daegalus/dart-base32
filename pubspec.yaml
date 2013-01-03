@@ -5,4 +5,4 @@ description: >
 author: Yulian Kuncheff <yulian@kuncheff.com>
 homepage: https://github.com/Daegalus/dart-base32
 dependencies:
-  unittest: 0.2.8+2
+  unittest: any
