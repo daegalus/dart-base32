@@ -1,5 +1,5 @@
 name: base32
-version: 0.0.2
+version: 0.0.3
 description: >
   Base32 Encoder and Decoder
 author: Yulian Kuncheff <yulian@kuncheff.com>

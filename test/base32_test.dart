@@ -4,11 +4,9 @@ import 'dart:crypto';
 import 'dart:scalarlist';
 
 void main() {
-  base32 b32 = new base32();
-
   group('[Decode]', () {
     test('JBSWY3DPEHPK3PXP -> 48656c6c6f21deadbeef', () {
-      var decoded = b32.decode("JBSWY3DPEHPK3PXP");
+      var decoded = base32.decode("JBSWY3DPEHPK3PXP");
       var decodedString = CryptoUtils.bytesToHex(decoded);
 
       expect(decodedString.toString(), equals('48656c6c6f21deadbeef'));
@@ -17,7 +15,7 @@ void main() {
 
   group('[Encode]', () {
     test('48656c6c6f21deadbeef -> JBSWY3DPEHPK3PXP', () {
-      var decoded = b32.encodeHexString("48656c6c6f21deadbeef");
+      var decoded = base32.encodeHexString("48656c6c6f21deadbeef");
       expect(decoded, equals('JBSWY3DPEHPK3PXP'));
     });
   });

@@ -7,7 +7,7 @@ class base32 {
    * bit operations on it, then outputs a [String] representation of the
    * base32.
    */
-  String encode(List bytesList) {
+  static String encode(List bytesList) {
     var bytes = new Uint8List(bytesList.length);
     bytes.setRange(0, bytes.length, bytesList, 0);
     int i = 0, index = 0, digit = 0;
@@ -46,7 +46,7 @@ class base32 {
    * and runs a normal encode() on it. Returning a [String] representation
    * of the base32.
    */
-  String encodeHexString(String hex) {
+  static String encodeHexString(String hex) {
     var bytes = _hexStringToBytes(hex);
     return encode(bytes);
   }
@@ -55,7 +55,7 @@ class base32 {
    * Takes in a [base32] string and decodes it back to a [Uint8List] that can be
    * converted to a hex string using Crypto.bytesToHex()
    */
-  Uint8List decode(String base32) {
+  static Uint8List decode(String base32) {
     int index = 0, lookup, offset = 0, digit;
     Uint8List bytes = new Uint8List(base32.length*5~/8);
     for(int i = 0; i < bytes.length; i++) {
@@ -99,7 +99,7 @@ class base32 {
     return bytes;
   }
 
-  Uint8List _hexStringToBytes(hex) {
+  static Uint8List _hexStringToBytes(hex) {
     Uint8List bytes = new Uint8List(hex.length~/2);
     for(int i=0; i < hex.length; i+=2) {
       var hexBit = "0x${hex[i]}${hex[i+1]}";
@@ -109,8 +109,8 @@ class base32 {
     return bytes;
   }
 
-  const _base32Chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567';
-  const _base32Lookup = const [0xFF,0xFF,0x1A,0x1B,0x1C,0x1D,0x1E,0x1F, // '0', '1', '2', '3', '4', '5', '6', '7'
+  static const _base32Chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567';
+  static const _base32Lookup = const [0xFF,0xFF,0x1A,0x1B,0x1C,0x1D,0x1E,0x1F, // '0', '1', '2', '3', '4', '5', '6', '7'
                               0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF, // '8', '9', ':', ';', '<', '=', '>', '?'
                               0xFF,0x00,0x01,0x02,0x03,0x04,0x05,0x06, // '@', 'A', 'B', 'C', 'D', 'E', 'F', 'G'
                               0x07,0x08,0x09,0x0A,0x0B,0x0C,0x0D,0x0E, // 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O'
