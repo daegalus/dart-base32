@@ -1,3 +1,5 @@
+[![](https://drone.io/daegalus/dart-base32/status.png)](https://drone.io/daegalus/dart-base32/latest)
+
 # dart-base32
 
 Simple base32 encode/decode matching the base32 method used by Google Authenticator.
