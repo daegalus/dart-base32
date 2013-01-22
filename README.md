@@ -20,13 +20,13 @@ There are 2 options. Directly from git, or from pub.dartlang.org
 pub.dartlang.org: (you can use 'any' instead of a version if you just want the latest always)
 ```yaml
 dependencies:
-  base32: 0.1
+  base32: 0.0.4
 ```
 
 directly from github:
 ```yaml
 dependencies:
-  uuid:
+  base32:
     git: https://github.com/Daegalus/dart-base32.git
 ```
 
@@ -98,6 +98,9 @@ In Browser
 At the moment, this package does not work client-side as it uses server-side only UInt8Lists. I might have to wait till UInt8Arrays and UInt8Lists are merged into 1
 
 ## Release notes
+v0.0.4
+- Fixes and changes for M3
+- New hex to byte converter.
 v0.0.3
 - Made all functions static.
 v0.0.2

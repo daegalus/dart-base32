@@ -99,12 +99,12 @@ class base32 {
     return bytes;
   }
 
-  static Uint8List _hexStringToBytes(hex) {
+  static Uint8List _hexStringToBytes(hex){
+    int i = 0;
     Uint8List bytes = new Uint8List(hex.length~/2);
-    for(int i=0; i < hex.length; i+=2) {
-      var hexBit = "0x${hex[i]}${hex[i+1]}";
-      int parsed = int.parse(hexBit);
-      bytes[i~/2] = parsed;
+    final RegExp regex = new RegExp('[0-9a-f]{2}');
+    for(Match match in regex.allMatches(hex.toLowerCase())) {
+        bytes[i++] = int.parse(hex.toLowerCase().substring(match.start,match.end),radix:16);
     }
     return bytes;
   }
