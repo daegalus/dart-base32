@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Dart-base32 by Daegalus</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Dart-base32</h1>
+        <p>Base32 Encoder and Decoder for Dart</p>
+
+        <p class="view"><a href="https://github.com/Daegalus/dart-base32">View the Project on GitHub <small>Daegalus/dart-base32</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/Daegalus/dart-base32/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/Daegalus/dart-base32/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/Daegalus/dart-base32">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p><a href="https://drone.io/daegalus/dart-base32/latest"><img src="https://drone.io/daegalus/dart-base32/status.png" alt=""></a></p>
+
+<h1>dart-base32</h1>
+
+<p>Simple base32 encode/decode matching the base32 method used by Google Authenticator.</p>
+
+<p>Features:</p>
+
+<ul>
+<li>Encodes and Decodes Base32 strings.</li>
+<li><a href="http://daegalus.github.com/dart-base32/base32/base32.html">Annotated source code</a></li>
+</ul><h2>Getting Started</h2>
+
+<h3>Notes on Windows (currently)</h3>
+
+<ul>
+<li>Use cmd for pub</li>
+</ul><h3>Pubspec</h3>
+
+<p>There are 2 options. Directly from git, or from pub.dartlang.org</p>
+
+<p>pub.dartlang.org: (you can use 'any' instead of a version if you just want the latest always)</p>
+
+<div class="highlight"><pre><span class="l-Scalar-Plain">dependencies</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">base32</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0.0.4</span>
+</pre></div>
+
+<p>directly from github:</p>
+
+<div class="highlight"><pre><span class="l-Scalar-Plain">dependencies</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">base32</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">git</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">https://github.com/Daegalus/dart-base32.git</span>
+</pre></div>
+
+<div class="highlight"><pre>#<span class="k">import</span><span class="p">(</span><span class="s1">'https://raw.github.com/Daegalus/dart-base32/master/lib/base32.dart'</span><span class="p">);</span> <span class="c1">//pulls it directly from github.</span>
+<span class="c1">// OR</span>
+#<span class="k">import</span><span class="p">(</span><span class="s1">'package:base32/base32.dart'</span><span class="p">);</span> <span class="c1">//Uses the local one in ./packages/base32/lib/bas32.dart</span>
+</pre></div>
+
+<p>Start encoding/decoding ...</p>
+
+<div class="highlight"><pre><span class="c1">// Encode a hex string to base32</span>
+<span class="n">base32</span><span class="p">.</span><span class="n">encodeHexString</span><span class="p">(</span><span class="s1">'48656c6c6f21deadbeef'</span><span class="p">);</span> <span class="c1">// -&gt; 'JBSWY3DPEHPK3PXP'</span>
+
+<span class="c1">// base32 decoding to original string.</span>
+<span class="n">base32</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"JBSWY3DPEHPK3PXP"</span><span class="p">);</span> <span class="c1">// -&gt; '48656c6c6f21deadbeef'</span>
+</pre></div>
+
+<h2>API</h2>
+
+<h3>base32.encode(List byteList)</h3>
+
+<p>Generate and return a RFC4122 v1 (timestamp-based) UUID.</p>
+
+<ul>
+<li>
+<code>byteList</code> - (List) A list of bytes representing your input.</li>
+</ul><p>Returns <code>String</code> representation of the encoded base32.</p>
+
+<h3>base32.encodeHexString(String hex)</h3>
+
+<p>Generate and return a RFC4122 v4 UUID.</p>
+
+<ul>
+<li>
+<code>hexString</code> - (String) A string of hex values intended to be converted to bytes and encoded.</li>
+</ul><p>Returns <code>String</code> representation of the encoded base32</p>
+
+<p>Example: Encode a hex string.</p>
+
+<div class="highlight"><pre><span class="n">base32</span><span class="p">.</span><span class="n">encodeHexString</span><span class="p">(</span><span class="s1">'48656c6c6f21deadbeef'</span><span class="p">);</span> <span class="c1">// -&gt; 'JBSWY3DPEHPK3PXP'</span>
+</pre></div>
+
+<h3>base32.decode(String base32)</h3>
+
+<p>Decodes a base32 string back to its original byte values.</p>
+
+<ul>
+<li>
+<code>base32</code> - (String) The base32 string you wish to decode.</li>
+</ul><p>Returns <code>Uint8List</code> of the decoded data.</p>
+
+<p>Example: Decode a base32 string, then output it in hex format</p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="n">decoded</span> <span class="o">=</span> <span class="n">base32</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"JBSWY3DPEHPK3PXP"</span><span class="p">);</span>
+<span class="kd">var</span> <span class="n">decodedHex</span> <span class="o">=</span> <span class="n">CryptoUtils</span><span class="p">.</span><span class="n">bytesToHex</span><span class="p">(</span><span class="n">decoded</span><span class="p">);</span> <span class="c1">// -&gt; '48656c6c6f21deadbeef'</span>
+</pre></div>
+
+<h2>Testing</h2>
+
+<p>In dartvm</p>
+
+<pre><code>dart test\base32_test.dart
+</code></pre>
+
+<p>In Browser</p>
+
+<p>At the moment, this package does not work client-side as it uses server-side only UInt8Lists. I might have to wait till UInt8Arrays and UInt8Lists are merged into 1</p>
+
+<h2>Release notes</h2>
+
+<p>v0.0.4</p>
+
+<ul>
+<li>Fixes and changes for M3</li>
+<li>New hex to byte converter.
+v0.0.3</li>
+<li>Made all functions static.
+v0.0.2</li>
+<li>Fixed unittest dependency
+v0.0.1</li>
+<li>Initial Documented Release</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/Daegalus">Daegalus</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
