@@ -7,17 +7,11 @@ Simple base32 encode/decode matching the base32 method used by Google Authentica
 Features:
 
 * Encodes and Decodes Base32 strings.
-* [Annotated source code](http://daegalus.github.com/dart-base32/base32/base32.html)
+* [Annotated source code](http://daegalus.github.com/annotated/dart-base32/base32/base32.html)
 
 ## Getting Started
 
-### Notes on Windows (currently)
-
-* Use cmd for pub
-
 ### Pubspec
-
-There are 2 options. Directly from git, or from pub.dartlang.org
 
 pub.dartlang.org: (you can use 'any' instead of a version if you just want the latest always)
 ```yaml
@@ -25,17 +19,8 @@ dependencies:
   base32: 0.0.4
 ```
 
-directly from github:
-```yaml
-dependencies:
-  base32:
-    git: https://github.com/Daegalus/dart-base32.git
-```
-
 ```dart
-#import('https://raw.github.com/Daegalus/dart-base32/master/lib/base32.dart'); //pulls it directly from github.
-// OR
-#import('package:base32/base32.dart'); //Uses the local one in ./packages/base32/lib/bas32.dart
+#import('package:base32/base32.dart');
 ```
 
 Start encoding/decoding ...
@@ -100,6 +85,8 @@ In Browser
 At the moment, this package does not work client-side as it uses server-side only UInt8Lists. I might have to wait till UInt8Arrays and UInt8Lists are merged into 1
 
 ## Release notes
+v0.0.5
+- Fix for language changes.
 v0.0.4
 - Fixes and changes for M3
 - New hex to byte converter.

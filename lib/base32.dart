@@ -63,7 +63,7 @@ class base32 {
     }
 
     for(int i=0; i < base32.length; i++) {
-      lookup = base32.charCodeAt(i) - '0'.charCodeAt(0);
+      lookup = base32.codeUnitAt(i) - '0'.codeUnitAt(0);
       if(lookup < 0 || lookup >= _base32Lookup.length) {
         continue;
       }
