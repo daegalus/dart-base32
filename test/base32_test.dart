@@ -1,7 +1,7 @@
 import 'package:unittest/unittest.dart';
 import 'package:base32/base32.dart';
 import 'dart:crypto';
-import 'dart:scalarlist';
+import 'dart:typeddata';
 
 void main() {
   group('[Decode]', () {

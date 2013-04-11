@@ -2,3 +2,5 @@
 /test/packages
 /.project
 /pubspec.lock
+docs/
+out/

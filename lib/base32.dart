@@ -1,5 +1,5 @@
 library base32;
-import "dart:scalarlist";
+import "dart:typeddata";
 class base32 {
 
   /**
@@ -36,7 +36,7 @@ class base32 {
           i++;
         }
       }
-      base32 = base32.concat(_base32Chars[digit]);
+      base32 = base32 + _base32Chars[digit];
     }
     return base32;
   }
