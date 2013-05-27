@@ -1,5 +1,5 @@
 library base32;
-import "dart:typeddata";
+import "dart:typed_data";
 class base32 {
 
   /**
