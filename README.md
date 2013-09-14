@@ -85,6 +85,9 @@ In Browser
 At the moment, this package does not work client-side as it uses server-side only UInt8Lists. I might have to wait till UInt8Arrays and UInt8Lists are merged into 1
 
 ## Release notes
+v0.0.8
+- Fix crypto import in the test.
+
 v0.0.7
 - Fix for typed_data name change. Thanks to the pull requestor for bringing it to my attention and fixing it.
 
