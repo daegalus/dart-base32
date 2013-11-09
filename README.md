@@ -1,4 +1,4 @@
-[![](https://drone.io/github.com/daegalus/dart-base32/status.png)](https://drone.io/github.com/daegalus/dart-base32/latest)
+[![Build Status](https://drone.io/daegalus/dart-base32/status.png)](https://drone.io/daegalus/dart-base32/latest)
 
 # dart-base32
 
