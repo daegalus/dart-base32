@@ -85,6 +85,9 @@ In Browser
 At the moment, this package does not work client-side as it uses server-side only UInt8Lists. I might have to wait till UInt8Arrays and UInt8Lists are merged into 1
 
 ## Release notes
+v0.1.0
+- Updates for Dart 1.0 readiness.
+
 v0.0.8
 - Fix crypto import in the test.
 

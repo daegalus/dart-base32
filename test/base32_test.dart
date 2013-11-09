@@ -1,7 +1,6 @@
 import 'package:unittest/unittest.dart';
 import 'package:base32/base32.dart';
 import 'package:crypto/crypto.dart';
-import 'dart:typed_data';
 
 void main() {
   group('[Decode]', () {
