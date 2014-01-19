@@ -20,7 +20,7 @@ dependencies:
 ```
 
 ```dart
-#import('package:base32/base32.dart');
+import 'package:base32/base32.dart';
 ```
 
 Start encoding/decoding ...
