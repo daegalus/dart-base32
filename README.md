@@ -85,6 +85,9 @@ In Browser
 At the moment, this package does not work client-side as it uses server-side only UInt8Lists. I might have to wait till UInt8Arrays and UInt8Lists are merged into 1
 
 ## Release notes
+v0.1.2
+- Merge Pull Request to move most dependencies to dev_dependecies
+
 v0.1.0 & v0.1.1wq
 - Updates for Dart 1.0 readiness.
 
