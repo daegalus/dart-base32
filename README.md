@@ -2,6 +2,8 @@
 
 # dart-base32
 
+[![Join the chat at https://gitter.im/Daegalus/dart-base32](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Daegalus/dart-base32?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Simple base32 encode/decode matching the base32 method used by Google Authenticator.
 
 Features:
