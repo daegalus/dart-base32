@@ -1,4 +1,4 @@
-[![Build Status](https://drone.io/daegalus/dart-base32/status.png)](https://drone.io/daegalus/dart-base32/latest)
+[![Build Status](https://travis-ci.org/Daegalus/dart-base32.svg?branch=master)](https://travis-ci.org/Daegalus/dart-base32)
 
 # dart-base32
 

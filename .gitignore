@@ -1,6 +1,7 @@
-/packages
+packages/
 /test/packages
 /.project
 /pubspec.lock
 docs/
 out/
+.packages

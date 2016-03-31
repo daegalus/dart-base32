@@ -1,4 +1,4 @@
-import 'package:unittest/unittest.dart';
+import 'package:test/test.dart';
 import 'package:base32/base32.dart';
 import 'package:crypto/crypto.dart';
 
