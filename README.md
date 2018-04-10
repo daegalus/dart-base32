@@ -16,6 +16,7 @@ Features:
 ### Pubspec
 
 pub.dartlang.org: (you can use 'any' instead of a version if you just want the latest always)
+
 ```yaml
 dependencies:
   base32: 0.0.7
@@ -87,33 +88,49 @@ In Browser
 At the moment, this package does not work client-side as it uses server-side only UInt8Lists. I might have to wait till UInt8Arrays and UInt8Lists are merged into 1
 
 ## Release notes
+
+v1.0.0
+
+* Merge pull request to fix List type and some readme formatting
+* This has been stable for years, moving to 1.0.0. Will release 1.0.0+1 when Dart 2.0 goes stable.
+
 v0.1.2
-- Merge Pull Request to move most dependencies to dev_dependecies
+
+* Merge Pull Request to move most dependencies to dev_dependecies
 
 v0.1.0 & v0.1.1wq
-- Updates for Dart 1.0 readiness.
+
+* Updates for Dart 1.0 readiness.
 
 v0.0.8
-- Fix crypto import in the test.
+
+* Fix crypto import in the test.
 
 v0.0.7
-- Fix for typed_data name change. Thanks to the pull requestor for bringing it to my attention and fixing it.
+
+* Fix for typed_data name change. Thanks to the pull requestor for bringing it to my attention and fixing it.
 
 v0.0.6
-- Fix for language changes.
+
+* Fix for language changes.
 
 v0.0.5
-- Fix for language changes.
+
+* Fix for language changes.
 
 v0.0.4
-- Fixes and changes for M3
-- New hex to byte converter.
+
+* Fixes and changes for M3
+* New hex to byte converter.
 
 v0.0.3
-- Made all functions static.
+
+* Made all functions static.
 
 v0.0.2
-- Fixed unittest dependency
+
+* Fixed unittest dependency
 
 v0.0.1
-- Initial Documented Release
+
+* Initial Documented Release

@@ -1,5 +1,10 @@
 language: dart
 dart:
   - dev
+dart_task:
+- test: --platform vm
+  xvfb: false
+- test: --platform chrome
+  xvfb: false
 
 sudo: false

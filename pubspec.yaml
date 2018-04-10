@@ -1,5 +1,5 @@
 name: base32
-version: 0.1.2
+version: 1.0.0
 author: Yulian Kuncheff <yulian@kuncheff.com>
 description: Base32 Encoder and Decoder
 homepage: https://github.com/Daegalus/dart-base32
@@ -7,4 +7,4 @@ environment:
   sdk: ">=1.0.0 <2.0.0"
 dev_dependencies:
   test: any
-  crypto: "<1.0.0"
+  convert: ">=2.0.0"
