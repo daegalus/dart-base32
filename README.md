@@ -37,19 +37,19 @@ base32.decode("JBSWY3DPEHPK3PXP"); // -> '48656c6c6f21deadbeef'
 
 ## API
 
-### base32.encode(List byteList)
+### `base32.encode(List<int> byteList)`
 
 Generate and return a RFC4122 v1 (timestamp-based) UUID.
 
-* `byteList` - (List) A list of bytes representing your input.
+* `byteList` - (`List<int>`) A list of bytes representing your input.
 
 Returns `String` representation of the encoded base32.
 
-### base32.encodeHexString(String hex)
+### `base32.encodeHexString(String hex)`
 
 Generate and return a RFC4122 v4 UUID.
 
-* `hexString` - (String) A string of hex values intended to be converted to bytes and encoded.
+* `hexString` - (`String`) A string of hex values intended to be converted to bytes and encoded.
 
 Returns `String` representation of the encoded base32
 
@@ -59,11 +59,11 @@ Example: Encode a hex string.
 base32.encodeHexString('48656c6c6f21deadbeef'); // -> 'JBSWY3DPEHPK3PXP'
 ```
 
-### base32.decode(String base32)
+### `base32.decode(String base32)`
 
 Decodes a base32 string back to its original byte values.
 
-* `base32` - (String) The base32 string you wish to decode.
+* `base32` - (`String`) The base32 string you wish to decode.
 
 Returns `Uint8List` of the decoded data.
 
