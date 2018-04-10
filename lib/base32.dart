@@ -7,7 +7,7 @@ class base32 {
    * bit operations on it, then outputs a [String] representation of the
    * base32.
    */
-  static String encode(List bytesList) {
+  static String encode(List<int> bytesList) {
     var bytes = new Uint8List(bytesList.length);
     bytes.setRange(0, bytes.length, bytesList, 0);
     int i = 0, index = 0, digit = 0;
