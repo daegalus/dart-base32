@@ -1,10 +1,10 @@
 name: base32
-version: 1.0.0+1
+version: 1.0.1
 author: Yulian Kuncheff <yulian@kuncheff.com>
 description: Base32 Encoder and Decoder for Dart, primarily used for One Time Password secrets.
 homepage: https://github.com/Daegalus/dart-base32
 environment:
-  sdk: ">=1.0.0 <2.0.0"
+  sdk: ">=1.0.0 <3.0.0"
 dev_dependencies:
   test: any
   convert: ">=2.0.0"
