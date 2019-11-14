@@ -8,3 +8,4 @@ environment:
 dev_dependencies:
   test: any
   convert: ">=2.0.0"
+  pedantic: "^1.0.0"

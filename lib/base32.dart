@@ -7,7 +7,7 @@ class base32 {
   /// bit operations on it, then outputs a [String] representation of the
   /// base32.
   static String encode(List<int> bytesList) {
-    var bytes = new Uint8List(bytesList.length);
+    var bytes = Uint8List(bytesList.length);
     bytes.setRange(0, bytes.length, bytesList, 0);
     int i = 0, index = 0, digit = 0;
     int currByte, nextByte;
@@ -52,7 +52,7 @@ class base32 {
   /// converted to a hex string using Crypto.bytesToHex()
   static Uint8List decode(String base32) {
     int index = 0, lookup, offset = 0, digit;
-    Uint8List bytes = new Uint8List(base32.length * 5 ~/ 8);
+    Uint8List bytes = Uint8List(base32.length * 5 ~/ 8);
     for (int i = 0; i < bytes.length; i++) {
       bytes[i] = 0;
     }
@@ -96,8 +96,8 @@ class base32 {
 
   static Uint8List _hexStringToBytes(hex) {
     int i = 0;
-    Uint8List bytes = new Uint8List(hex.length ~/ 2);
-    final RegExp regex = new RegExp('[0-9a-f]{2}');
+    Uint8List bytes = Uint8List(hex.length ~/ 2);
+    final RegExp regex = RegExp('[0-9a-f]{2}');
     for (Match match in regex.allMatches(hex.toLowerCase())) {
       bytes[i++] = int.parse(hex.toLowerCase().substring(match.start, match.end), radix: 16);
     }
@@ -105,7 +105,7 @@ class base32 {
   }
 
   static const _base32Chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567';
-  static const _base32Lookup = const [
+  static const _base32Lookup = [
     0xFF, 0xFF, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E,
     0x1F, // '0', '1', '2', '3', '4', '5', '6', '7'
     0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
