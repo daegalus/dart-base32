@@ -99,7 +99,9 @@ class base32 {
     Uint8List bytes = Uint8List(hex.length ~/ 2);
     final RegExp regex = RegExp('[0-9a-f]{2}');
     for (Match match in regex.allMatches(hex.toLowerCase())) {
-      bytes[i++] = int.parse(hex.toLowerCase().substring(match.start, match.end), radix: 16);
+      bytes[i++] = int.parse(
+          hex.toLowerCase().substring(match.start, match.end),
+          radix: 16);
     }
     return bytes;
   }
