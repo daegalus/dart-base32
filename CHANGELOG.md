@@ -1,3 +1,7 @@
+v1.0.2
+
+- Some cleanup
+
 v1.0.1
 
 - Enable 2.0.0 final support

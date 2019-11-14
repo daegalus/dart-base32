@@ -3,11 +3,9 @@ library base32;
 import "dart:typed_data";
 
 class base32 {
-  /**
-   * Takes in a [byteList] converts it to a Uint8List so that I can run
-   * bit operations on it, then outputs a [String] representation of the
-   * base32.
-   */
+  /// Takes in a [byteList] converts it to a Uint8List so that I can run
+  /// bit operations on it, then outputs a [String] representation of the
+  /// base32.
   static String encode(List<int> bytesList) {
     var bytes = new Uint8List(bytesList.length);
     bytes.setRange(0, bytes.length, bytesList, 0);
@@ -42,20 +40,16 @@ class base32 {
     return base32;
   }
 
-  /**
-   * Takes in a [hex] string, converts the string to a byte list
-   * and runs a normal encode() on it. Returning a [String] representation
-   * of the base32.
-   */
+  /// Takes in a [hex] string, converts the string to a byte list
+  /// and runs a normal encode() on it. Returning a [String] representation
+  /// of the base32.
   static String encodeHexString(String hex) {
     var bytes = _hexStringToBytes(hex);
     return encode(bytes);
   }
 
-  /**
-   * Takes in a [base32] string and decodes it back to a [Uint8List] that can be
-   * converted to a hex string using Crypto.bytesToHex()
-   */
+  /// Takes in a [base32] string and decodes it back to a [Uint8List] that can be
+  /// converted to a hex string using Crypto.bytesToHex()
   static Uint8List decode(String base32) {
     int index = 0, lookup, offset = 0, digit;
     Uint8List bytes = new Uint8List(base32.length * 5 ~/ 8);
@@ -105,9 +99,7 @@ class base32 {
     Uint8List bytes = new Uint8List(hex.length ~/ 2);
     final RegExp regex = new RegExp('[0-9a-f]{2}');
     for (Match match in regex.allMatches(hex.toLowerCase())) {
-      bytes[i++] = int.parse(
-          hex.toLowerCase().substring(match.start, match.end),
-          radix: 16);
+      bytes[i++] = int.parse(hex.toLowerCase().substring(match.start, match.end), radix: 16);
     }
     return bytes;
   }
