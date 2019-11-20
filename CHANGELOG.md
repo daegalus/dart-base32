@@ -1,3 +1,9 @@
+# Changelog
+
+v1.1.1
+
+- Fix broken pubspec.yaml
+
 v1.1.0
 
 - Reimplemented Decode and Encode to fix issue #7
