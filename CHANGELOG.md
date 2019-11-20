@@ -1,3 +1,13 @@
+v1.1
+
+- Reimplemented Decode and Encode to fix issue #7
+- Decode now throws FormatException if you give it an invalide base32 string.
+- added encodeString() to pass in generic strings
+- added decodeAsString() to return straight string data
+- added decodeAsHexString() to return a hex format string directly
+- Use convert to do hex encoding/decoding.
+- Add a lot more tests, primarily from the RF4648 test cases.
+
 v1.0.4 & v1.0.3 & v1.0.2
 
 - Some cleanup
