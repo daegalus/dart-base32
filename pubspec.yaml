@@ -5,7 +5,7 @@ description: Base32 Encoder and Decoder for Dart, primarily used for One Time Pa
 homepage: https://github.com/Daegalus/dart-base32
 environment:
   sdk: ">=1.0.0 <3.0.0"
+  convert: ">=2.0.0"
 dev_dependencies:
   test: any
-  convert: ">=2.0.0"
   pedantic: "^1.0.0"
