@@ -1,4 +1,4 @@
-v1.1
+v1.1.0
 
 - Reimplemented Decode and Encode to fix issue #7
 - Decode now throws FormatException if you give it an invalide base32 string.
