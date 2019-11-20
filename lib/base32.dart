@@ -32,7 +32,8 @@ class base32 {
     var remain = bytesList.length - count;
     if (remain == 1) {
       var v1 = bytesList[i];
-      base32str += _base32Chars[v1 >> 3] + _base32Chars[(v1 << 2) & 31] + '======';
+      base32str +=
+          _base32Chars[v1 >> 3] + _base32Chars[(v1 << 2) & 31] + '======';
     } else if (remain == 2) {
       var v1 = bytesList[i++];
       var v2 = bytesList[i];
