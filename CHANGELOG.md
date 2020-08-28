@@ -1,5 +1,8 @@
 # Changelog
 
+v1.1.2
+- Linting
+
 v1.1.1
 
 - Fix broken pubspec.yaml

@@ -12,7 +12,8 @@ void main() {
     });
 
     test('JBSWY3DPEHPK3PXPF throws FormatException', () {
-      expect(() => base32.decode('JBSWY3DPEHPK3PXPF'), throwsA(TypeMatcher<FormatException>()));
+      expect(() => base32.decode('JBSWY3DPEHPK3PXPF'),
+          throwsA(TypeMatcher<FormatException>()));
     });
   });
 

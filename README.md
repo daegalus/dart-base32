@@ -9,7 +9,7 @@ Simple base32 encode/decode following RFC4648. Can handle base32 for OTP secrets
 Features:
 
 * Encodes and Decodes Base32 strings.
-* [Annotated source code](http://daegalus.github.com/annotated/dart-base32/base32/base32.html)
+* [Annotated source code](https://daegalus.github.com/annotated/dart-base32/base32/base32.html)
 
 ## Getting Started
 

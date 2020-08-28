@@ -4,6 +4,7 @@ import "dart:typed_data";
 import "dart:convert";
 import 'package:convert/convert.dart';
 
+// ignore: camel_case_types
 class base32 {
   /// Takes in a [byteList] converts it to a Uint8List so that I can run
   /// bit operations on it, then outputs a [String] representation of the
