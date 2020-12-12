@@ -1,7 +1,7 @@
 library base32;
 
-import "dart:typed_data";
-import "dart:convert";
+import 'dart:typed_data';
+import 'dart:convert';
 import 'package:convert/convert.dart';
 
 // ignore: camel_case_types
@@ -10,9 +10,9 @@ class base32 {
   /// bit operations on it, then outputs a [String] representation of the
   /// base32.
   static String encode(Uint8List bytesList) {
-    int i = 0;
-    int count = (bytesList.length ~/ 5) * 5;
-    String base32str = "";
+    var i = 0;
+    var count = (bytesList.length ~/ 5) * 5;
+    var base32str = '';
     while (i < count) {
       var v1 = bytesList[i++];
       var v2 = bytesList[i++];
@@ -74,14 +74,14 @@ class base32 {
   /// and runs a normal encode() on it. Returning a [String] representation
   /// of the base32.
   static String encodeHexString(String b32hex) {
-    return encode(hex.decode(b32hex));
+    return encode(Uint8List.fromList(hex.decode(b32hex)));
   }
 
   /// Takes in a [utf8string], converts the string to a byte list
   /// and runs a normal encode() on it. Returning a [String] representation
   /// of the base32.
   static String encodeString(String utf8string) {
-    return encode(utf8.encode(utf8string));
+    return encode(Uint8List.fromList(utf8.encode(utf8string)));
   }
 
   /// Takes in a [base32] string and decodes it back to a [String] in hex format.
@@ -102,7 +102,7 @@ class base32 {
       return Uint8List(0);
     }
     if (!_isValid(base32)) {
-      throw FormatException("Invalid Base32 characters");
+      throw FormatException('Invalid Base32 characters');
       //return Uint8List(8);
     }
 
@@ -111,18 +111,18 @@ class base32 {
       length = base32.length;
     }
 
-    int i = 0;
-    int count = length >> 3 << 3;
-    List<int> bytes = List<int>();
+    var i = 0;
+    var count = length >> 3 << 3;
+    var bytes = <int>[];
     while (i < count) {
-      var v1 = _base32Decode[base32[i++]];
-      var v2 = _base32Decode[base32[i++]];
-      var v3 = _base32Decode[base32[i++]];
-      var v4 = _base32Decode[base32[i++]];
-      var v5 = _base32Decode[base32[i++]];
-      var v6 = _base32Decode[base32[i++]];
-      var v7 = _base32Decode[base32[i++]];
-      var v8 = _base32Decode[base32[i++]];
+      var v1 = _base32Decode[base32[i++]] ?? 0;
+      var v2 = _base32Decode[base32[i++]] ?? 0;
+      var v3 = _base32Decode[base32[i++]] ?? 0;
+      var v4 = _base32Decode[base32[i++]] ?? 0;
+      var v5 = _base32Decode[base32[i++]] ?? 0;
+      var v6 = _base32Decode[base32[i++]] ?? 0;
+      var v7 = _base32Decode[base32[i++]] ?? 0;
+      var v8 = _base32Decode[base32[i++]] ?? 0;
       bytes.add((v1 << 3 | v2 >> 2) & 255);
       bytes.add((v2 << 6 | v3 << 1 | v4 >> 4) & 255);
       bytes.add((v4 << 4 | v5 >> 1) & 255);
@@ -132,33 +132,33 @@ class base32 {
 
     var remain = length - count;
     if (remain == 2) {
-      var v1 = _base32Decode[base32[i++]];
-      var v2 = _base32Decode[base32[i++]];
+      var v1 = _base32Decode[base32[i++]] ?? 0;
+      var v2 = _base32Decode[base32[i++]] ?? 0;
       bytes.add((v1 << 3 | v2 >> 2) & 255);
     } else if (remain == 4) {
-      var v1 = _base32Decode[base32[i++]];
-      var v2 = _base32Decode[base32[i++]];
-      var v3 = _base32Decode[base32[i++]];
-      var v4 = _base32Decode[base32[i++]];
+      var v1 = _base32Decode[base32[i++]] ?? 0;
+      var v2 = _base32Decode[base32[i++]] ?? 0;
+      var v3 = _base32Decode[base32[i++]] ?? 0;
+      var v4 = _base32Decode[base32[i++]] ?? 0;
       bytes.add((v1 << 3 | v2 >> 2) & 255);
       bytes.add((v2 << 6 | v3 << 1 | v4 >> 4) & 255);
     } else if (remain == 5) {
-      var v1 = _base32Decode[base32[i++]];
-      var v2 = _base32Decode[base32[i++]];
-      var v3 = _base32Decode[base32[i++]];
-      var v4 = _base32Decode[base32[i++]];
-      var v5 = _base32Decode[base32[i++]];
+      var v1 = _base32Decode[base32[i++]] ?? 0;
+      var v2 = _base32Decode[base32[i++]] ?? 0;
+      var v3 = _base32Decode[base32[i++]] ?? 0;
+      var v4 = _base32Decode[base32[i++]] ?? 0;
+      var v5 = _base32Decode[base32[i++]] ?? 0;
       bytes.add((v1 << 3 | v2 >> 2) & 255);
       bytes.add((v2 << 6 | v3 << 1 | v4 >> 4) & 255);
       bytes.add((v4 << 4 | v5 >> 1) & 255);
     } else if (remain == 7) {
-      var v1 = _base32Decode[base32[i++]];
-      var v2 = _base32Decode[base32[i++]];
-      var v3 = _base32Decode[base32[i++]];
-      var v4 = _base32Decode[base32[i++]];
-      var v5 = _base32Decode[base32[i++]];
-      var v6 = _base32Decode[base32[i++]];
-      var v7 = _base32Decode[base32[i++]];
+      var v1 = _base32Decode[base32[i++]] ?? 0;
+      var v2 = _base32Decode[base32[i++]] ?? 0;
+      var v3 = _base32Decode[base32[i++]] ?? 0;
+      var v4 = _base32Decode[base32[i++]] ?? 0;
+      var v5 = _base32Decode[base32[i++]] ?? 0;
+      var v6 = _base32Decode[base32[i++]] ?? 0;
+      var v7 = _base32Decode[base32[i++]] ?? 0;
       bytes.add((v1 << 3 | v2 >> 2) & 255);
       bytes.add((v2 << 6 | v3 << 1 | v4 >> 4) & 255);
       bytes.add((v4 << 4 | v5 >> 1) & 255);
@@ -174,7 +174,7 @@ class base32 {
     return true;
   }
 
-  static final _base32Regex = RegExp(r"^[A-Z2-7=]+$");
+  static final _base32Regex = RegExp(r'^[A-Z2-7=]+$');
   static const _base32Chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567';
   static const _base32Decode = {
     'A': 0,
