@@ -1,12 +1,17 @@
 import 'package:test/test.dart';
 import 'package:base32/base32.dart';
-import 'package:convert/convert.dart';
+import 'dart:typed_data';
 
 void main() {
+  String _hexEncode(final Uint8List input) => [
+        for (int i = 0; i < input.length; i++)
+          input[i].toRadixString(16).padLeft(2, '0')
+      ].join();
+
   group('[Decode]', () {
     test('JBSWY3DPEHPK3PXP -> 48656c6c6f21deadbeef', () {
       var decoded = base32.decode('JBSWY3DPEHPK3PXP');
-      var decodedString = hex.encode(decoded);
+      var decodedString = _hexEncode(decoded);
 
       expect(decodedString.toString(), equals('48656c6c6f21deadbeef'));
     });

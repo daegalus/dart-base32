@@ -1,8 +1,6 @@
 library base32;
 
 import 'dart:typed_data';
-import 'dart:convert';
-import 'package:convert/convert.dart';
 
 // ignore: camel_case_types
 class base32 {
@@ -70,32 +68,45 @@ class base32 {
     return base32str;
   }
 
+  static Uint8List _hexDecode(final String input) => Uint8List.fromList([
+        for (int i = 0; i < input.length; i += 2)
+          int.parse(input.substring(i, i + 2), radix: 16),
+      ]);
+
+  static String _hexEncode(final Uint8List input) => [
+        for (int i = 0; i < input.length; i++)
+          input[i].toRadixString(16).padLeft(2, '0')
+      ].join();
+
   /// Takes in a [hex] string, converts the string to a byte list
   /// and runs a normal encode() on it. Returning a [String] representation
   /// of the base32.
   static String encodeHexString(String b32hex) {
-    return encode(Uint8List.fromList(hex.decode(b32hex)));
+    return encode(_hexDecode(b32hex));
   }
 
   /// Takes in a [utf8string], converts the string to a byte list
   /// and runs a normal encode() on it. Returning a [String] representation
   /// of the base32.
   static String encodeString(String utf8string) {
-    return encode(Uint8List.fromList(utf8.encode(utf8string)));
+    return encode(Uint8List.fromList(utf8string.codeUnits));
   }
 
   /// Takes in a [base32] string and decodes it back to a [String] in hex format.
   static String decodeAsHexString(String base32) {
-    return hex.encode(decode(base32));
+    return _hexEncode(decode(base32));
   }
 
   /// Takes in a [base32] string and decodes it back to a [String].
   static String decodeAsString(String base32) {
-    return utf8.decode(decode(base32));
+    return decode(base32)
+        .toList()
+        .map((charCode) => String.fromCharCode(charCode))
+        .join();
   }
 
   /// Takes in a [base32] string and decodes it back to a [Uint8List] that can be
-  /// converted to a hex string using hex.encode() from dart:convert
+  /// converted to a hex string using hexEncode
   static Uint8List decode(String base32) {
     base32 = base32.toUpperCase();
     if (base32.isEmpty) {
