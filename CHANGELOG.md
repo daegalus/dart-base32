@@ -1,6 +1,6 @@
 # Changelog
 
-v1.2.0
+v2.0.0-nullsafety.0
 - Nullsafety
 
 v1.1.2
