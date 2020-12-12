@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Daegalus/dart-base32.svg?branch=master)](https://travis-ci.org/Daegalus/dart-base32)
+![Dart](https://github.com/Daegalus/dart-base32/workflows/Dart/badge.svg)
 
 # dart-base32
 
@@ -17,7 +17,7 @@ pub.dev: (you can use 'any' instead of a version if you just want the latest alw
 
 ```yaml
 dependencies:
-  base32: 1.1.1
+  base32: 1.2.0
 ```
 
 ```dart

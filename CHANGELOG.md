@@ -1,5 +1,8 @@
 # Changelog
 
+v1.2.0
+- Nullsafety
+
 v1.1.2
 - Linting
 
