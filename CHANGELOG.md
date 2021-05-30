@@ -1,5 +1,8 @@
 # Changelog
 
+v2.0.0
+- Release final nullsafe version
+  
 v2.0.0-nullsafety.1
 - Remove convert dependency
 
