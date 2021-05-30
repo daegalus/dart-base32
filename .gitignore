@@ -2,7 +2,6 @@ packages/
 /test/packages
 /.project
 /pubspec.lock
-docs/
 out/
 .packages
 .dart_tool
