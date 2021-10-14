@@ -22,61 +22,61 @@ void main() {
           throwsA(TypeMatcher<FormatException>()));
     });
 
-    test('[Base32Hex] 91IMOR3F47FARFNF -> 48656c6c6f21deadbeef', () {
+    test('[base32Hex] 91IMOR3F47FARFNF -> 48656c6c6f21deadbeef', () {
       var decoded =
-          base32.decode('91IMOR3F47FARFNF', encoding: Encoding.Base32Hex);
+          base32.decode('91IMOR3F47FARFNF', encoding: Encoding.base32Hex);
       var decodedString = _hexEncode(decoded);
 
       expect(decodedString.toString(), equals('48656c6c6f21deadbeef'));
     });
 
-    test('[Base32Hex] 91IMOR3F47FARFNFF throws FormatException', () {
+    test('[base32Hex] 91IMOR3F47FARFNFF throws FormatException', () {
       expect(
           () =>
-              base32.decode('91IMOR3F47FARFNFF', encoding: Encoding.Base32Hex),
+              base32.decode('91IMOR3F47FARFNFF', encoding: Encoding.base32Hex),
           throwsA(TypeMatcher<FormatException>()));
     });
 
-    test('[Crockford] 91JPRV3F47FAVFQF -> 48656c6c6f21deadbeef', () {
+    test('[crockford] 91JPRV3F47FAVFQF -> 48656c6c6f21deadbeef', () {
       var decoded =
-          base32.decode('91JPRV3F47FAVFQF', encoding: Encoding.Crockford);
+          base32.decode('91JPRV3F47FAVFQF', encoding: Encoding.crockford);
       var decodedString = _hexEncode(decoded);
 
       expect(decodedString.toString(), equals('48656c6c6f21deadbeef'));
     });
 
-    test('[Crockford] 91JPRV3F47FAVFQFF throws FormatException', () {
+    test('[crockford] 91JPRV3F47FAVFQFF throws FormatException', () {
       expect(
           () =>
-              base32.decode('91JPRV3F47FAVFQFF', encoding: Encoding.Crockford),
+              base32.decode('91JPRV3F47FAVFQFF', encoding: Encoding.crockford),
           throwsA(TypeMatcher<FormatException>()));
     });
 
-    test('[ZBase32] jb1sa5dxr8xk5xzx -> 48656c6c6f21deadbeef', () {
+    test('[zbase32] jb1sa5dxr8xk5xzx -> 48656c6c6f21deadbeef', () {
       var decoded =
-          base32.decode('jb1sa5dxr8xk5xzx', encoding: Encoding.ZBase32);
+          base32.decode('jb1sa5dxr8xk5xzx', encoding: Encoding.zbase32);
       var decodedString = _hexEncode(decoded);
 
       expect(decodedString.toString(), equals('48656c6c6f21deadbeef'));
     });
 
-    test('[ZBase32] jb1sa5dxr8xk5xz= throws FormatException', () {
+    test('[zbase32] jb1sa5dxr8xk5xz= throws FormatException', () {
       expect(
-          () => base32.decode('jb1sa5dxr8xk5xz=', encoding: Encoding.ZBase32),
+          () => base32.decode('jb1sa5dxr8xk5xz=', encoding: Encoding.zbase32),
           throwsA(TypeMatcher<FormatException>()));
     });
 
-    test('[Geohash] 91kqsv3g47gbvgrg -> 48656c6c6f21deadbeef', () {
+    test('[geohash] 91kqsv3g47gbvgrg -> 48656c6c6f21deadbeef', () {
       var decoded =
-          base32.decode('91kqsv3g47gbvgrg', encoding: Encoding.Geohash);
+          base32.decode('91kqsv3g47gbvgrg', encoding: Encoding.geohash);
       var decodedString = _hexEncode(decoded);
 
       expect(decodedString.toString(), equals('48656c6c6f21deadbeef'));
     });
 
-    test('[Geohash] 91kqsv3g47gbvgrgF throws FormatException', () {
+    test('[geohash] 91kqsv3g47gbvgrgF throws FormatException', () {
       expect(
-          () => base32.decode('91kqsv3g47gbvgrgF', encoding: Encoding.Geohash),
+          () => base32.decode('91kqsv3g47gbvgrgF', encoding: Encoding.geohash),
           throwsA(TypeMatcher<FormatException>()));
     });
   });
@@ -87,27 +87,27 @@ void main() {
       expect(encoded, equals('JBSWY3DPEHPK3PXP'));
     });
 
-    test('[Base32Hex] 48656c6c6f21deadbeef -> 91IMOR3F47FARFNF', () {
+    test('[base32Hex] 48656c6c6f21deadbeef -> 91IMOR3F47FARFNF', () {
       var encoded = base32.encodeHexString('48656c6c6f21deadbeef',
-          encoding: Encoding.Base32Hex);
+          encoding: Encoding.base32Hex);
       expect(encoded, equals('91IMOR3F47FARFNF'));
     });
 
-    test('[Crockford] 48656c6c6f21deadbeef -> 91JPRV3F47FAVFQF', () {
+    test('[crockford] 48656c6c6f21deadbeef -> 91JPRV3F47FAVFQF', () {
       var encoded = base32.encodeHexString('48656c6c6f21deadbeef',
-          encoding: Encoding.Crockford);
+          encoding: Encoding.crockford);
       expect(encoded, equals('91JPRV3F47FAVFQF'));
     });
 
-    test('[ZBase32] 48656c6c6f21deadbeef -> jb1sa5dxr8xk5xzx', () {
+    test('[zbase32] 48656c6c6f21deadbeef -> jb1sa5dxr8xk5xzx', () {
       var encoded = base32.encodeHexString('48656c6c6f21deadbeef',
-          encoding: Encoding.ZBase32);
+          encoding: Encoding.zbase32);
       expect(encoded, equals('jb1sa5dxr8xk5xzx'));
     });
 
-    test('[Geohash] 48656c6c6f21deadbeef -> 91kqsv3g47gbvgrg', () {
+    test('[geohash] 48656c6c6f21deadbeef -> 91kqsv3g47gbvgrg', () {
       var encoded = base32.encodeHexString('48656c6c6f21deadbeef',
-          encoding: Encoding.Geohash);
+          encoding: Encoding.geohash);
       expect(encoded, equals('91kqsv3g47gbvgrg'));
     });
   });
@@ -118,27 +118,27 @@ void main() {
       expect(encoded, equals('JBSWY3DPEHPK3PQ='));
     });
 
-    test('[Base32Hex] 48656c6c6f21deadbe -> 91IMOR3F47FARFG=', () {
+    test('[base32Hex] 48656c6c6f21deadbe -> 91IMOR3F47FARFG=', () {
       var encoded = base32.encodeHexString('48656c6c6f21deadbe',
-          encoding: Encoding.Base32Hex);
+          encoding: Encoding.base32Hex);
       expect(encoded, equals('91IMOR3F47FARFG='));
     });
 
-    test('[Crockford] 48656c6c6f21deadbe -> 91JPRV3F47FAVFG (no padding)', () {
+    test('[crockford] 48656c6c6f21deadbe -> 91JPRV3F47FAVFG (no padding)', () {
       var encoded = base32.encodeHexString('48656c6c6f21deadbe',
-          encoding: Encoding.Crockford);
+          encoding: Encoding.crockford);
       expect(encoded, equals('91JPRV3F47FAVFG'));
     });
 
-    test('[ZBase32] 48656c6c6f21deadbe -> jb1sa5dxr8xk5xo (no padding)', () {
+    test('[zbase32] 48656c6c6f21deadbe -> jb1sa5dxr8xk5xo (no padding)', () {
       var encoded = base32.encodeHexString('48656c6c6f21deadbe',
-          encoding: Encoding.ZBase32);
+          encoding: Encoding.zbase32);
       expect(encoded, equals('jb1sa5dxr8xk5xo'));
     });
 
-    test('[Geohash] 48656c6c6f21deadbe -> 91kqsv3g47gbvgh=', () {
+    test('[geohash] 48656c6c6f21deadbe -> 91kqsv3g47gbvgh=', () {
       var encoded = base32.encodeHexString('48656c6c6f21deadbe',
-          encoding: Encoding.Geohash);
+          encoding: Encoding.geohash);
       expect(encoded, equals('91kqsv3g47gbvgh='));
     });
   });

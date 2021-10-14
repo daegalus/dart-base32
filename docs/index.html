@@ -68,13 +68,13 @@ base32.encodeHexString('48656c6c6f21deadbeef'); // -&gt; 'JBSWY3DPEHPK3PXP'
 base32.decodeAsHexString("JBSWY3DPEHPK3PXP"); // -&gt; '48656c6c6f21deadbeef'
 </code></pre>
 <h2 id="api">API</h2>
-<h3 id="base32encodelistint-bytelist-encoding-encoding--encodingstandardrfc4648"><code>base32.encode(List&lt;int&gt; byteList, {Encoding encoding = Encoding.StandardRFC4648})</code></h3>
+<h3 id="base32encodelistint-bytelist-encoding-encoding--encodingstandardrfc4648"><code>base32.encode(List&lt;int&gt; byteList, {Encoding encoding = Encoding.standardRFC4648})</code></h3>
 <p>Generate and return a RFC4648 base32 string from a list of bytes.</p>
 <ul>
 <li><code>byteList</code> - (<code>List&lt;int&gt;</code>) A list of bytes representing your input.</li>
 </ul>
 <p>Returns <code>String</code> representation of the encoded base32.</p>
-<h3 id="base32encodehexstringstring-hex-encoding-encoding--encodingstandardrfc4648"><code>base32.encodeHexString(String hex, {Encoding encoding = Encoding.StandardRFC4648})</code></h3>
+<h3 id="base32encodehexstringstring-hex-encoding-encoding--encodingstandardrfc4648"><code>base32.encodeHexString(String hex, {Encoding encoding = Encoding.standardRFC4648})</code></h3>
 <p>Generate and return a RFC4648 base32 string from a hex string.</p>
 <ul>
 <li><code>hexString</code> - (<code>String</code>) A string of hex values intended to be converted to bytes and encoded.</li>
@@ -83,7 +83,7 @@ base32.decodeAsHexString("JBSWY3DPEHPK3PXP"); // -&gt; '48656c6c6f21deadbeef'
 <p>Example: Encode a hex string.</p>
 <pre class="language-dart"><code class="language-dart">base32.encodeHexString('48656c6c6f21deadbeef'); // -&gt; 'JBSWY3DPEHPK3PXP'
 </code></pre>
-<h3 id="base32encodestringstring-base32str-encoding-encoding--encodingstandardrfc4648"><code>base32.encodeString(String base32str, {Encoding encoding = Encoding.StandardRFC4648})</code></h3>
+<h3 id="base32encodestringstring-base32str-encoding-encoding--encodingstandardrfc4648"><code>base32.encodeString(String base32str, {Encoding encoding = Encoding.standardRFC4648})</code></h3>
 <p>Generate and return a RFC4648 base32 string from a plain string.</p>
 <ul>
 <li><code>base32str</code> - (<code>String</code>) A string intended to be converted to bytes and encoded.</li>
@@ -92,7 +92,7 @@ base32.decodeAsHexString("JBSWY3DPEHPK3PXP"); // -&gt; '48656c6c6f21deadbeef'
 <p>Example: Encode a hex string.</p>
 <pre class="language-dart"><code class="language-dart">base32.encodeString('foobar'); // -&gt; 'MZXW6YTBOI======'
 </code></pre>
-<h3 id="base32decodestring-base32-encoding-encoding--encodingstandardrfc4648"><code>base32.decode(String base32, {Encoding encoding = Encoding.StandardRFC4648})</code></h3>
+<h3 id="base32decodestring-base32-encoding-encoding--encodingstandardrfc4648"><code>base32.decode(String base32, {Encoding encoding = Encoding.standardRFC4648})</code></h3>
 <p>Decodes a base32 string back to its original byte values.</p>
 <ul>
 <li><code>base32</code> - (<code>String</code>) The base32 string you wish to decode.</li>
@@ -103,7 +103,7 @@ base32.decodeAsHexString("JBSWY3DPEHPK3PXP"); // -&gt; '48656c6c6f21deadbeef'
 var decoded = base32.decode("JBSWY3DPEHPK3PXP");
 var decodedHex = hex.encode(decoded); // -&gt; '48656c6c6f21deadbeef'
 </code></pre>
-<h3 id="base32decodeashexstringstring-base32-encoding-encoding--encodingstandardrfc4648"><code>base32.decodeAsHexString(String base32, {Encoding encoding = Encoding.StandardRFC4648})</code></h3>
+<h3 id="base32decodeashexstringstring-base32-encoding-encoding--encodingstandardrfc4648"><code>base32.decodeAsHexString(String base32, {Encoding encoding = Encoding.standardRFC4648})</code></h3>
 <p>Decodes a base32 string back to its original byte values in hex string format.</p>
 <ul>
 <li><code>base32</code> - (<code>String</code>) The base32 string you wish to decode.</li>
@@ -113,7 +113,7 @@ var decodedHex = hex.encode(decoded); // -&gt; '48656c6c6f21deadbeef'
 <pre class="language-dart"><code class="language-dart">import "package:convert/convert.dart"
 var decoded = base32.decodeAsHexString("JBSWY3DPEHPK3PXP"); // -&gt; '48656c6c6f21deadbeef'
 </code></pre>
-<h3 id="base32decodeasstringstring-base32-encoding-encoding--encodingstandardrfc4648"><code>base32.decodeAsString(String base32, {Encoding encoding = Encoding.StandardRFC4648})</code></h3>
+<h3 id="base32decodeasstringstring-base32-encoding-encoding--encodingstandardrfc4648"><code>base32.decodeAsString(String base32, {Encoding encoding = Encoding.standardRFC4648})</code></h3>
 <p>Decodes a base32 string back to its original byte values.</p>
 <ul>
 <li><code>base32</code> - (<code>String</code>) The base32 string you wish to decode.</li>
@@ -131,13 +131,13 @@ var decoded = base32.decodeAsHexString("JBSWY3DPEHPK3PXP"); // -&gt; '48656c6c6f
 <li>Padded with <code>=</code></li>
 </ul>
 </li>
-<li>Base32Hex
+<li>base32Hex
 <ul>
 <li><code>0123456789ABCDEFGHIJKLMNOPQRSTUV</code></li>
 <li>Padded with <code>=</code></li>
 </ul>
 </li>
-<li>Crockford
+<li>crockford
 <ul>
 <li><code>0123456789ABCDEFGHJKMNPQRSTVWXYZ</code></li>
 <li>Not Padded</li>
@@ -149,7 +149,7 @@ var decoded = base32.decodeAsHexString("JBSWY3DPEHPK3PXP"); // -&gt; '48656c6c6f
 <li>Not Padded</li>
 </ul>
 </li>
-<li>Geohash
+<li>geohash
 <ul>
 <li><code>0123456789bcdefghjkmnpqrstuvwxyz</code></li>
 <li>Padded with <code>=</code></li>

@@ -9,7 +9,7 @@ class base32 {
   /// bit operations on it, then outputs a [String] representation of the
   /// base32.
   static String encode(Uint8List bytesList,
-      {Encoding encoding = Encoding.StandardRFC4648}) {
+      {Encoding encoding = Encoding.standardRFC4648}) {
     var base32Chars = EncodingUtils.getChars(encoding);
     var i = 0;
     var count = (bytesList.length ~/ 5) * 5;
@@ -93,7 +93,7 @@ class base32 {
   /// and runs a normal encode() on it. Returning a [String] representation
   /// of the base32.
   static String encodeHexString(String b32hex,
-      {Encoding encoding = Encoding.StandardRFC4648}) {
+      {Encoding encoding = Encoding.standardRFC4648}) {
     return encode(_hexDecode(b32hex), encoding: encoding);
   }
 
@@ -101,19 +101,19 @@ class base32 {
   /// and runs a normal encode() on it. Returning a [String] representation
   /// of the base32.
   static String encodeString(String utf8string,
-      {Encoding encoding = Encoding.StandardRFC4648}) {
+      {Encoding encoding = Encoding.standardRFC4648}) {
     return encode(Uint8List.fromList(utf8string.codeUnits), encoding: encoding);
   }
 
   /// Takes in a [base32] string and decodes it back to a [String] in hex format.
   static String decodeAsHexString(String base32,
-      {Encoding encoding = Encoding.StandardRFC4648}) {
+      {Encoding encoding = Encoding.standardRFC4648}) {
     return _hexEncode(decode(base32, encoding: encoding));
   }
 
   /// Takes in a [base32] string and decodes it back to a [String].
   static String decodeAsString(String base32,
-      {Encoding encoding = Encoding.StandardRFC4648}) {
+      {Encoding encoding = Encoding.standardRFC4648}) {
     return decode(base32, encoding: encoding)
         .toList()
         .map((charCode) => String.fromCharCode(charCode))
@@ -123,7 +123,7 @@ class base32 {
   /// Takes in a [base32] string and decodes it back to a [Uint8List] that can be
   /// converted to a hex string using hexEncode
   static Uint8List decode(String base32,
-      {Encoding encoding = Encoding.StandardRFC4648}) {
+      {Encoding encoding = Encoding.standardRFC4648}) {
     if (base32.isEmpty) {
       return Uint8List(0);
     }
@@ -194,7 +194,7 @@ class base32 {
   }
 
   static bool _isValid(String b32str,
-      {Encoding encoding = Encoding.StandardRFC4648}) {
+      {Encoding encoding = Encoding.standardRFC4648}) {
     var regex = EncodingUtils.getRegex(encoding);
     if (b32str.length % 2 != 0 || !regex.hasMatch(b32str)) {
       return false;

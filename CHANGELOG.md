@@ -2,7 +2,7 @@
 
 v2.1.0
 
-- Add support for Base32Hex, Crockford, z-base-32, and Geohash variants
+- Add support for base32Hex, crockford, z-base-32, and geohash variants
 
 v2.0.0
 

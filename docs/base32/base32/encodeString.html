@@ -54,7 +54,7 @@
 
 <span class="returntype"><a href="https://api.dart.dev/dev/2.15.0-82.0.dev/dart-core/String-class.html">String</a></span>
 <span class="name ">encodeString</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="encodeString-param-utf8string"><span class="type-annotation"><a href="https://api.dart.dev/dev/2.15.0-82.0.dev/dart-core/String-class.html">String</a></span> <span class="parameter-name">utf8string</span>, </span></li>
-<li><span class="parameter" id="encodeString-param-encoding">{<span class="type-annotation"><a href="../../encodings/Encoding-class.html">Encoding</a></span> <span class="parameter-name">encoding</span> = <span class="default-value">Encoding.StandardRFC4648</span>}</span></li>
+<li><span class="parameter" id="encodeString-param-encoding">{<span class="type-annotation"><a href="../../encodings/Encoding-class.html">Encoding</a></span> <span class="parameter-name">encoding</span> = <span class="default-value">Encoding.standardRFC4648</span>}</span></li>
 </ol>)
 
       
@@ -72,7 +72,7 @@ of the base32.</p>
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static String encodeString(String utf8string,
-    {Encoding encoding = Encoding.StandardRFC4648}) {
+    {Encoding encoding = Encoding.standardRFC4648}) {
   return encode(Uint8List.fromList(utf8string.codeUnits), encoding: encoding);
 }</code></pre>
 </section>
