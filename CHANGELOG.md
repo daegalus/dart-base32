@@ -1,15 +1,23 @@
 # Changelog
 
+v2.1.0
+
+- Add support for Base32Hex, Crockford, z-base-32, and Geohash variants
+
 v2.0.0
+
 - Release final nullsafe version
   
 v2.0.0-nullsafety.1
+
 - Remove convert dependency
 
 v2.0.0-nullsafety.0
+
 - Nullsafety
 
 v1.1.2
+
 - Linting
 
 v1.1.1

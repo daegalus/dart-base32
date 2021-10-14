@@ -17,7 +17,7 @@ pub.dev: (you can use 'any' instead of a version if you just want the latest alw
 
 ```yaml
 dependencies:
-  base32: 2.0.0
+  base32: 2.1.0
 ```
 
 ```dart
@@ -36,7 +36,7 @@ base32.decodeAsHexString("JBSWY3DPEHPK3PXP"); // -> '48656c6c6f21deadbeef'
 
 ## API
 
-### `base32.encode(List<int> byteList)`
+### `base32.encode(List<int> byteList, {Encoding encoding = Encoding.StandardRFC4648})`
 
 Generate and return a RFC4648 base32 string from a list of bytes.
 
@@ -44,7 +44,7 @@ Generate and return a RFC4648 base32 string from a list of bytes.
 
 Returns `String` representation of the encoded base32.
 
-### `base32.encodeHexString(String hex)`
+### `base32.encodeHexString(String hex, {Encoding encoding = Encoding.StandardRFC4648})`
 
 Generate and return a RFC4648 base32 string from a hex string.
 
@@ -58,7 +58,7 @@ Example: Encode a hex string.
 base32.encodeHexString('48656c6c6f21deadbeef'); // -> 'JBSWY3DPEHPK3PXP'
 ```
 
-### `base32.encodeString(String base32str)`
+### `base32.encodeString(String base32str, {Encoding encoding = Encoding.StandardRFC4648})`
 
 Generate and return a RFC4648 base32 string from a plain string.
 
@@ -72,7 +72,7 @@ Example: Encode a hex string.
 base32.encodeString('foobar'); // -> 'MZXW6YTBOI======'
 ```
 
-### `base32.decode(String base32)`
+### `base32.decode(String base32, {Encoding encoding = Encoding.StandardRFC4648})`
 
 Decodes a base32 string back to its original byte values.
 
@@ -88,7 +88,7 @@ var decoded = base32.decode("JBSWY3DPEHPK3PXP");
 var decodedHex = hex.encode(decoded); // -> '48656c6c6f21deadbeef'
 ```
 
-### `base32.decodeAsHexString(String base32)`
+### `base32.decodeAsHexString(String base32, {Encoding encoding = Encoding.StandardRFC4648})`
 
 Decodes a base32 string back to its original byte values in hex string format.
 
@@ -103,7 +103,7 @@ import "package:convert/convert.dart"
 var decoded = base32.decodeAsHexString("JBSWY3DPEHPK3PXP"); // -> '48656c6c6f21deadbeef'
 ```
 
-### `base32.decodeAsString(String base32)`
+### `base32.decodeAsString(String base32, {Encoding encoding = Encoding.StandardRFC4648})`
 
 Decodes a base32 string back to its original byte values.
 
@@ -117,6 +117,26 @@ Example: Decode a base32 string to a string.
 var decoded = base32.decodeAsString("MZXW6YTBOI======"); // -> 'foobar'
 ```
 
+### `enum Encoding`
+
+This is a list of supported variants and their different encodings.
+
+- StandardRFC4658 - the default standard encoding
+  - `ABCDEFGHIJKLMNOPQRSTUVWXYZ234567`
+  - Padded with `=`
+- Base32Hex
+  - `0123456789ABCDEFGHIJKLMNOPQRSTUV`
+  - Padded with `=`
+- Crockford
+  - `0123456789ABCDEFGHJKMNPQRSTVWXYZ`
+  - Not Padded
+- z-base-32
+  - `ybndrfg8ejkmcpqxot1uwisza345h769`
+  - Not Padded
+- Geohash
+  - `0123456789bcdefghjkmnpqrstuvwxyz`
+  - Padded with `=`
+  
 ## Testing
 
 ```bash
