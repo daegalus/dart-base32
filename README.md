@@ -1,4 +1,4 @@
-![Dart](https://github.com/Daegalus/dart-base32/workflows/Dart/badge.svg)
+[![Dart](https://github.com/Daegalus/dart-base32/workflows/Dart/badge.svg)](https://github.com/Daegalus/dart-base32/actions)
 
 # dart-base32
 
@@ -7,7 +7,7 @@ Simple base32 encode/decode following RFC4648. Can handle base32 for OTP secrets
 Features:
 
 * Encodes and Decodes Base32 strings.
-* [Annotated source code](https://daegalus.github.com/annotated/dart-base32/base32/base32.html)
+* [Documentation](https://daegalus.github.io/dart-base32/)
 
 ## Getting Started
 
