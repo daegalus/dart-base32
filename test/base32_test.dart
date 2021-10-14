@@ -1,5 +1,6 @@
 import 'package:test/test.dart';
 import 'package:base32/base32.dart';
+import 'package:base32/encodings.dart';
 import 'dart:typed_data';
 
 void main() {
@@ -9,27 +10,140 @@ void main() {
       ].join();
 
   group('[Decode]', () {
-    test('JBSWY3DPEHPK3PXP -> 48656c6c6f21deadbeef', () {
+    test('[RFC4648] JBSWY3DPEHPK3PXP -> 48656c6c6f21deadbeef', () {
       var decoded = base32.decode('JBSWY3DPEHPK3PXP');
       var decodedString = _hexEncode(decoded);
 
       expect(decodedString.toString(), equals('48656c6c6f21deadbeef'));
     });
 
-    test('JBSWY3DPEHPK3PXPF throws FormatException', () {
+    test('[RFC4648] JBSWY3DPEHPK3PXPF throws FormatException', () {
       expect(() => base32.decode('JBSWY3DPEHPK3PXPF'),
+          throwsA(TypeMatcher<FormatException>()));
+    });
+
+    test('[Base32Hex] 91IMOR3F47FARFNF -> 48656c6c6f21deadbeef', () {
+      var decoded =
+          base32.decode('91IMOR3F47FARFNF', encoding: Encoding.Base32Hex);
+      var decodedString = _hexEncode(decoded);
+
+      expect(decodedString.toString(), equals('48656c6c6f21deadbeef'));
+    });
+
+    test('[Base32Hex] 91IMOR3F47FARFNFF throws FormatException', () {
+      expect(
+          () =>
+              base32.decode('91IMOR3F47FARFNFF', encoding: Encoding.Base32Hex),
+          throwsA(TypeMatcher<FormatException>()));
+    });
+
+    test('[Crockford] 91JPRV3F47FAVFQF -> 48656c6c6f21deadbeef', () {
+      var decoded =
+          base32.decode('91JPRV3F47FAVFQF', encoding: Encoding.Crockford);
+      var decodedString = _hexEncode(decoded);
+
+      expect(decodedString.toString(), equals('48656c6c6f21deadbeef'));
+    });
+
+    test('[Crockford] 91JPRV3F47FAVFQFF throws FormatException', () {
+      expect(
+          () =>
+              base32.decode('91JPRV3F47FAVFQFF', encoding: Encoding.Crockford),
+          throwsA(TypeMatcher<FormatException>()));
+    });
+
+    test('[ZBase32] jb1sa5dxr8xk5xzx -> 48656c6c6f21deadbeef', () {
+      var decoded =
+          base32.decode('jb1sa5dxr8xk5xzx', encoding: Encoding.ZBase32);
+      var decodedString = _hexEncode(decoded);
+
+      expect(decodedString.toString(), equals('48656c6c6f21deadbeef'));
+    });
+
+    test('[ZBase32] jb1sa5dxr8xk5xz= throws FormatException', () {
+      expect(
+          () => base32.decode('jb1sa5dxr8xk5xz=', encoding: Encoding.ZBase32),
+          throwsA(TypeMatcher<FormatException>()));
+    });
+
+    test('[Geohash] 91kqsv3g47gbvgrg -> 48656c6c6f21deadbeef', () {
+      var decoded =
+          base32.decode('91kqsv3g47gbvgrg', encoding: Encoding.Geohash);
+      var decodedString = _hexEncode(decoded);
+
+      expect(decodedString.toString(), equals('48656c6c6f21deadbeef'));
+    });
+
+    test('[Geohash] 91kqsv3g47gbvgrgF throws FormatException', () {
+      expect(
+          () => base32.decode('91kqsv3g47gbvgrgF', encoding: Encoding.Geohash),
           throwsA(TypeMatcher<FormatException>()));
     });
   });
 
   group('[Encode]', () {
-    test('48656c6c6f21deadbeef -> JBSWY3DPEHPK3PXP', () {
+    test('[RFC4648] 48656c6c6f21deadbeef -> JBSWY3DPEHPK3PXP', () {
       var encoded = base32.encodeHexString('48656c6c6f21deadbeef');
       expect(encoded, equals('JBSWY3DPEHPK3PXP'));
     });
+
+    test('[Base32Hex] 48656c6c6f21deadbeef -> 91IMOR3F47FARFNF', () {
+      var encoded = base32.encodeHexString('48656c6c6f21deadbeef',
+          encoding: Encoding.Base32Hex);
+      expect(encoded, equals('91IMOR3F47FARFNF'));
+    });
+
+    test('[Crockford] 48656c6c6f21deadbeef -> 91JPRV3F47FAVFQF', () {
+      var encoded = base32.encodeHexString('48656c6c6f21deadbeef',
+          encoding: Encoding.Crockford);
+      expect(encoded, equals('91JPRV3F47FAVFQF'));
+    });
+
+    test('[ZBase32] 48656c6c6f21deadbeef -> jb1sa5dxr8xk5xzx', () {
+      var encoded = base32.encodeHexString('48656c6c6f21deadbeef',
+          encoding: Encoding.ZBase32);
+      expect(encoded, equals('jb1sa5dxr8xk5xzx'));
+    });
+
+    test('[Geohash] 48656c6c6f21deadbeef -> 91kqsv3g47gbvgrg', () {
+      var encoded = base32.encodeHexString('48656c6c6f21deadbeef',
+          encoding: Encoding.Geohash);
+      expect(encoded, equals('91kqsv3g47gbvgrg'));
+    });
   });
 
-  group('[RFC4648][Encode]', () {
+  group('[Padding]', () {
+    test('[RFC4648] 48656c6c6f21deadbe -> JBSWY3DPEHPK3PQ=', () {
+      var encoded = base32.encodeHexString('48656c6c6f21deadbe');
+      expect(encoded, equals('JBSWY3DPEHPK3PQ='));
+    });
+
+    test('[Base32Hex] 48656c6c6f21deadbe -> 91IMOR3F47FARFG=', () {
+      var encoded = base32.encodeHexString('48656c6c6f21deadbe',
+          encoding: Encoding.Base32Hex);
+      expect(encoded, equals('91IMOR3F47FARFG='));
+    });
+
+    test('[Crockford] 48656c6c6f21deadbe -> 91JPRV3F47FAVFG (no padding)', () {
+      var encoded = base32.encodeHexString('48656c6c6f21deadbe',
+          encoding: Encoding.Crockford);
+      expect(encoded, equals('91JPRV3F47FAVFG'));
+    });
+
+    test('[ZBase32] 48656c6c6f21deadbe -> jb1sa5dxr8xk5xo (no padding)', () {
+      var encoded = base32.encodeHexString('48656c6c6f21deadbe',
+          encoding: Encoding.ZBase32);
+      expect(encoded, equals('jb1sa5dxr8xk5xo'));
+    });
+
+    test('[Geohash] 48656c6c6f21deadbe -> 91kqsv3g47gbvgh=', () {
+      var encoded = base32.encodeHexString('48656c6c6f21deadbe',
+          encoding: Encoding.Geohash);
+      expect(encoded, equals('91kqsv3g47gbvgh='));
+    });
+  });
+
+  group('[RFC4648 Testcase][Encode]', () {
     test('"" -> ""', () {
       var encoded = base32.encodeString('');
       expect(encoded, equals(''));
@@ -60,7 +174,7 @@ void main() {
     });
   });
 
-  group('[RFC4648][Decode]', () {
+  group('[RFC4648 Testcase][Decode]', () {
     test('"" -> ""', () {
       var decoded = base32.decodeAsString('');
       expect(decoded, equals(''));
