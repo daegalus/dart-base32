@@ -1,5 +1,9 @@
 # Changelog
 
+v2.1.1
+
+- Add handling of dashes in crockford variant.
+  
 v2.1.0
 
 - Add support for base32Hex, crockford, z-base-32, and geohash variants

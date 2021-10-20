@@ -30,7 +30,7 @@ class EncodingUtils {
   static final _regexMap = {
     Encoding.standardRFC4648: RegExp(r'^[A-Z2-7=]+$'),
     Encoding.base32Hex: RegExp(r'^[0-9A-V=]+$'),
-    Encoding.crockford: RegExp(r'^[0123456789ABCDEFGHJKMNPQRSTVWXYZ]+$'),
+    Encoding.crockford: RegExp(r'^[0123456789ABCDEFGHJKMNPQRSTVWXYZ-]+$'),
     Encoding.zbase32: RegExp(r'^[ybndrfg8ejkmcpqxot1uwisza345h769]+$'),
     Encoding.geohash: RegExp(r'^[0123456789bcdefghjkmnpqrstuvwxyz=]+$')
   };

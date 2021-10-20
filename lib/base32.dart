@@ -131,6 +131,10 @@ class base32 {
       throw FormatException('Invalid Base32 characters');
     }
 
+    if (encoding == Encoding.crockford) {
+      base32 = base32.replaceAll('-', '');
+    } // Handle crockford dashes.
+
     var base32Decode = EncodingUtils.getDecodeMap(encoding);
     var length = base32.indexOf('=');
     if (length == -1) {

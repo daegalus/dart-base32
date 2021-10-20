@@ -45,6 +45,14 @@ void main() {
       expect(decodedString.toString(), equals('48656c6c6f21deadbeef'));
     });
 
+    test('[crockford] 91JP-RV3F-47FA-VFQF- -> 48656c6c6f21deadbeef', () {
+      var decoded =
+          base32.decode('91JP-RV3F-47FA-VFQF-', encoding: Encoding.crockford);
+      var decodedString = _hexEncode(decoded);
+
+      expect(decodedString.toString(), equals('48656c6c6f21deadbeef'));
+    });
+
     test('[crockford] 91JPRV3F47FAVFQFF throws FormatException', () {
       expect(
           () =>
