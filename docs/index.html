@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="generator" content="made with love by dartdoc 3.1.0">
+  <meta name="generator" content="made with love by dartdoc 5.1.2">
   <meta name="description" content="base32 API docs, for the Dart programming language.">
   <title>base32 - Dart API docs</title>
 
@@ -22,8 +22,7 @@
 </head>
 
 
-<body data-base-href=""
-      data-using-base-href="false">
+<body data-base-href="" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -56,7 +55,7 @@
 <h3 id="pubspec">Pubspec</h3>
 <p>pub.dev: (you can use 'any' instead of a version if you just want the latest always)</p>
 <pre class="language-yaml"><code class="language-yaml">dependencies:
-  base32: 2.1.1
+  base32: 2.1.2
 </code></pre>
 <pre class="language-dart"><code class="language-dart">import 'package:base32/base32.dart';
 </code></pre>
@@ -125,7 +124,7 @@ var decoded = base32.decodeAsHexString("JBSWY3DPEHPK3PXP"); // -&gt; '48656c6c6f
 <h3 id="enum-encoding"><code>enum Encoding</code></h3>
 <p>This is a list of supported variants and their different encodings.</p>
 <ul>
-<li>StandardRFC4658 - the default standard encoding
+<li>StandardRFC4648 - the default standard encoding
 <ul>
 <li><code>ABCDEFGHIJKLMNOPQRSTUVWXYZ234567</code></li>
 <li>Padded with <code>=</code></li>
@@ -155,6 +154,12 @@ var decoded = base32.decodeAsHexString("JBSWY3DPEHPK3PXP"); // -&gt; '48656c6c6f
 <li>Padded with <code>=</code></li>
 </ul>
 </li>
+<li>NonStandardRFC4648 - Same as StandardRFC4648, but lowercase, not supported by the spec.
+<ul>
+<li><code>abcdefghijklmnopqrstuvwxyz234567</code></li>
+<li>Padded with <code>=</code></li>
+</ul>
+</li>
 </ul>
 <h2 id="testing">Testing</h2>
 <pre class="language-bash"><code class="language-bash">dart test/base32_test.dart
@@ -171,14 +176,14 @@ var decoded = base32.decodeAsHexString("JBSWY3DPEHPK3PXP"); // -&gt; '48656c6c6f
   <span class="name"><a href="base32/base32-library.html">base32</a></span> 
 
 </dt>
-<dd> 
+<dd>
 </dd>
 
           <dt id="encodings">
   <span class="name"><a href="encodings/encodings-library.html">encodings</a></span> 
 
 </dt>
-<dd> 
+<dd>
 </dd>
 
         </dl>
@@ -215,7 +220,7 @@ var decoded = base32.decodeAsHexString("JBSWY3DPEHPK3PXP"); // -&gt; '48656c6c6f
 <footer>
   <span class="no-break">
     base32
-      2.1.1
+      2.1.2
   </span>
 
   
@@ -224,7 +229,7 @@ var decoded = base32.decodeAsHexString("JBSWY3DPEHPK3PXP"); // -&gt; '48656c6c6f
 
 
 <script src="static-assets/highlight.pack.js?v1"></script>
-<script src="static-assets/script.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
 
 
 
