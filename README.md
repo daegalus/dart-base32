@@ -17,7 +17,7 @@ pub.dev: (you can use 'any' instead of a version if you just want the latest alw
 
 ```yaml
 dependencies:
-  base32: 2.1.1
+  base32: 2.1.2
 ```
 
 ```dart
@@ -121,7 +121,7 @@ var decoded = base32.decodeAsString("MZXW6YTBOI======"); // -> 'foobar'
 
 This is a list of supported variants and their different encodings.
 
-- StandardRFC4658 - the default standard encoding
+- StandardRFC4648 - the default standard encoding
   - `ABCDEFGHIJKLMNOPQRSTUVWXYZ234567`
   - Padded with `=`
 - base32Hex
@@ -135,6 +135,9 @@ This is a list of supported variants and their different encodings.
   - Not Padded
 - geohash
   - `0123456789bcdefghjkmnpqrstuvwxyz`
+  - Padded with `=`
+- NonStandardRFC4648 - Same as StandardRFC4648, but lowercase, not supported by the spec.
+  - `abcdefghijklmnopqrstuvwxyz234567`
   - Padded with `=`
   
 ## Testing

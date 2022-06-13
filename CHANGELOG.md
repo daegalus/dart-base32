@@ -1,5 +1,9 @@
 # Changelog
 
+v2.1.2
+
+- Added lowercase variant of the RFC4648 encoding for use in situations where needed. I don't recommend using it, as this is not standard and not part of the RFC4648 spec, so interoperability with other libraries can not be guaranteed.
+
 v2.1.1
 
 - Add handling of dashes in crockford variant.
