@@ -127,6 +127,9 @@ class base32 {
     if (base32.isEmpty) {
       return Uint8List(0);
     }
+
+    base32 = _pad(base32, encoding: encoding);
+
     if (!_isValid(base32, encoding: encoding)) {
       throw FormatException('Invalid Base32 characters');
     }
@@ -204,5 +207,14 @@ class base32 {
       return false;
     }
     return true;
+  }
+
+  static String _pad(String base32,
+      {Encoding encoding = Encoding.standardRFC4648}) {
+    if (EncodingUtils.getPadded(encoding)) {
+      int neededPadding = (8 - base32.length % 8) % 8;
+      return base32.padRight(base32.length + neededPadding, '=');
+    }
+    return base32;
   }
 }

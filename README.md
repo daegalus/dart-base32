@@ -17,7 +17,7 @@ pub.dev: (you can use 'any' instead of a version if you just want the latest alw
 
 ```yaml
 dependencies:
-  base32: 2.1.2
+  base32: 2.1.3
 ```
 
 ```dart

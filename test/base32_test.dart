@@ -17,9 +17,11 @@ void main() {
       expect(decodedString.toString(), equals('48656c6c6f21deadbeef'));
     });
 
-    test('[RFC4648] JBSWY3DPEHPK3PXPF throws FormatException', () {
-      expect(() => base32.decode('JBSWY3DPEHPK3PXPF'),
-          throwsA(TypeMatcher<FormatException>()));
+    test('[RFC4648] JBSWY3DPEHPK3PXPF -> 48656c6c6f21deadbeef', () {
+      var decoded = base32.decode('JBSWY3DPEHPK3PXPF');
+      var decodedString = _hexEncode(decoded);
+
+      expect(decodedString.toString(), equals('48656c6c6f21deadbeef'));
     });
 
     test('[base32Hex] 91IMOR3F47FARFNF -> 48656c6c6f21deadbeef', () {
@@ -30,11 +32,10 @@ void main() {
       expect(decodedString.toString(), equals('48656c6c6f21deadbeef'));
     });
 
-    test('[base32Hex] 91IMOR3F47FARFNFF throws FormatException', () {
-      expect(
-          () =>
-              base32.decode('91IMOR3F47FARFNFF', encoding: Encoding.base32Hex),
-          throwsA(TypeMatcher<FormatException>()));
+    test('[base32Hex] 91IMOR3F47FARFNFFF -> 48656c6c6f21deadbeef7b', () {
+      var decoded = base32.decodeAsHexString('91IMOR3F47FARFNFFF',
+          encoding: Encoding.base32Hex);
+      expect(decoded.toString(), equals('48656c6c6f21deadbeef7b'));
     });
 
     test('[crockford] 91JPRV3F47FAVFQF -> 48656c6c6f21deadbeef', () {
@@ -148,6 +149,14 @@ void main() {
       var encoded = base32.encodeHexString('48656c6c6f21deadbe',
           encoding: Encoding.geohash);
       expect(encoded, equals('91kqsv3g47gbvgh='));
+    });
+
+    test(
+        'Verify that ADWADWADWADDWADWADDWADA does not error due to missing padding',
+        () {
+      var encoded = base32.decodeAsHexString('ADWADWADWADDWADWADDWADA',
+          encoding: Encoding.standardRFC4648);
+      expect(encoded, equals('00ec01d803b0063b007600c7600c'));
     });
   });
 

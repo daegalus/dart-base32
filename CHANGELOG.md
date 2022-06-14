@@ -1,5 +1,9 @@
 # Changelog
 
+v2.1.3
+
+- Add auto padding for padded Encodings when padding is not part of the string but should be, reduces errors thrown and it is common to share unpadded strings for padded encodings.
+
 v2.1.2
 
 - Added lowercase variant of the RFC4648 encoding for use in situations where needed. I don't recommend using it, as this is not standard and not part of the RFC4648 spec, so interoperability with other libraries can not be guaranteed.
