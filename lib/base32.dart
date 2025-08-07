@@ -203,7 +203,11 @@ class base32 {
   static bool _isValid(String b32str,
       {Encoding encoding = Encoding.standardRFC4648}) {
     var regex = EncodingUtils.getRegex(encoding);
-    if (b32str.length % 2 != 0 || !regex.hasMatch(b32str)) {
+    // Only check even length for encodings that use padding
+    if (EncodingUtils.getPadded(encoding) && b32str.length % 2 != 0) {
+      return false;
+    }
+    if (!regex.hasMatch(b32str)) {
       return false;
     }
     return true;

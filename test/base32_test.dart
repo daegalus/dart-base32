@@ -54,11 +54,10 @@ void main() {
       expect(decodedString.toString(), equals('48656c6c6f21deadbeef'));
     });
 
-    test('[crockford] 91JPRV3F47FAVFQFF throws FormatException', () {
-      expect(
-          () =>
-              base32.decode('91JPRV3F47FAVFQFF', encoding: Encoding.crockford),
-          throwsA(TypeMatcher<FormatException>()));
+    test('[crockford] 91JPRV3F47FAVFQFF decodes successfully', () {
+      var decoded = base32.decode('91JPRV3F47FAVFQFF', encoding: Encoding.crockford);
+      var decodedString = _hexEncode(decoded);
+      expect(decodedString.toString(), equals('48656c6c6f21deadbeef'));
     });
 
     test('[zbase32] jb1sa5dxr8xk5xzx -> 48656c6c6f21deadbeef', () {
@@ -219,6 +218,14 @@ void main() {
     test('MZXW6YTBOI====== -> foobar', () {
       var decoded = base32.decodeAsString('MZXW6YTBOI======');
       expect(decoded, equals('foobar'));
+    });
+  });
+
+  group('[crockford] encode/decode example from GitHub issue', () {
+    test('colorful-lines', () {
+      final encoded = base32.encodeString('colorful-lines', encoding: Encoding.crockford);
+      final decoded = base32.decodeAsString(encoded, encoding: Encoding.crockford);
+      expect(decoded, equals('colorful-lines'));
     });
   });
 }
