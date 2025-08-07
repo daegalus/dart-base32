@@ -4,7 +4,7 @@ import 'package:base32/encodings.dart';
 import 'dart:typed_data';
 
 void main() {
-  String _hexEncode(final Uint8List input) => [
+  String hexEncode(final Uint8List input) => [
         for (int i = 0; i < input.length; i++)
           input[i].toRadixString(16).padLeft(2, '0')
       ].join();
@@ -12,14 +12,14 @@ void main() {
   group('[Decode]', () {
     test('[RFC4648] JBSWY3DPEHPK3PXP -> 48656c6c6f21deadbeef', () {
       var decoded = base32.decode('JBSWY3DPEHPK3PXP');
-      var decodedString = _hexEncode(decoded);
+      var decodedString = hexEncode(decoded);
 
       expect(decodedString.toString(), equals('48656c6c6f21deadbeef'));
     });
 
     test('[RFC4648] JBSWY3DPEHPK3PXPF -> 48656c6c6f21deadbeef', () {
       var decoded = base32.decode('JBSWY3DPEHPK3PXPF');
-      var decodedString = _hexEncode(decoded);
+      var decodedString = hexEncode(decoded);
 
       expect(decodedString.toString(), equals('48656c6c6f21deadbeef'));
     });
@@ -27,7 +27,7 @@ void main() {
     test('[base32Hex] 91IMOR3F47FARFNF -> 48656c6c6f21deadbeef', () {
       var decoded =
           base32.decode('91IMOR3F47FARFNF', encoding: Encoding.base32Hex);
-      var decodedString = _hexEncode(decoded);
+      var decodedString = hexEncode(decoded);
 
       expect(decodedString.toString(), equals('48656c6c6f21deadbeef'));
     });
@@ -41,7 +41,7 @@ void main() {
     test('[crockford] 91JPRV3F47FAVFQF -> 48656c6c6f21deadbeef', () {
       var decoded =
           base32.decode('91JPRV3F47FAVFQF', encoding: Encoding.crockford);
-      var decodedString = _hexEncode(decoded);
+      var decodedString = hexEncode(decoded);
 
       expect(decodedString.toString(), equals('48656c6c6f21deadbeef'));
     });
@@ -49,21 +49,22 @@ void main() {
     test('[crockford] 91JP-RV3F-47FA-VFQF- -> 48656c6c6f21deadbeef', () {
       var decoded =
           base32.decode('91JP-RV3F-47FA-VFQF-', encoding: Encoding.crockford);
-      var decodedString = _hexEncode(decoded);
+      var decodedString = hexEncode(decoded);
 
       expect(decodedString.toString(), equals('48656c6c6f21deadbeef'));
     });
 
     test('[crockford] 91JPRV3F47FAVFQFF decodes successfully', () {
-      var decoded = base32.decode('91JPRV3F47FAVFQFF', encoding: Encoding.crockford);
-      var decodedString = _hexEncode(decoded);
+      var decoded =
+          base32.decode('91JPRV3F47FAVFQFF', encoding: Encoding.crockford);
+      var decodedString = hexEncode(decoded);
       expect(decodedString.toString(), equals('48656c6c6f21deadbeef'));
     });
 
     test('[zbase32] jb1sa5dxr8xk5xzx -> 48656c6c6f21deadbeef', () {
       var decoded =
           base32.decode('jb1sa5dxr8xk5xzx', encoding: Encoding.zbase32);
-      var decodedString = _hexEncode(decoded);
+      var decodedString = hexEncode(decoded);
 
       expect(decodedString.toString(), equals('48656c6c6f21deadbeef'));
     });
@@ -77,7 +78,7 @@ void main() {
     test('[geohash] 91kqsv3g47gbvgrg -> 48656c6c6f21deadbeef', () {
       var decoded =
           base32.decode('91kqsv3g47gbvgrg', encoding: Encoding.geohash);
-      var decodedString = _hexEncode(decoded);
+      var decodedString = hexEncode(decoded);
 
       expect(decodedString.toString(), equals('48656c6c6f21deadbeef'));
     });
@@ -223,8 +224,10 @@ void main() {
 
   group('[crockford] encode/decode example from GitHub issue', () {
     test('colorful-lines', () {
-      final encoded = base32.encodeString('colorful-lines', encoding: Encoding.crockford);
-      final decoded = base32.decodeAsString(encoded, encoding: Encoding.crockford);
+      final encoded =
+          base32.encodeString('colorful-lines', encoding: Encoding.crockford);
+      final decoded =
+          base32.decodeAsString(encoded, encoding: Encoding.crockford);
       expect(decoded, equals('colorful-lines'));
     });
   });

@@ -1,5 +1,11 @@
 # Changelog
 
+v2.2.0
+
+- Fix crockford padding handling (Thanks @jscholler)
+- Update deps and clean up old dart stuff no longer necessary.
+- Expose `isValid` to allow verification with booleans.
+
 v2.1.3
 
 - Add auto padding for padded Encodings when padding is not part of the string but should be, reduces errors thrown and it is common to share unpadded strings for padded encodings.

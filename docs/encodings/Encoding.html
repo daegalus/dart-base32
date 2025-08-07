@@ -11,90 +11,84 @@
   
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
   
   <link rel="stylesheet" href="../static-assets/github.css?v1">
   <link rel="stylesheet" href="../static-assets/styles.css?v1">
   <link rel="icon" href="../static-assets/favicon.png?v1">
-
   
 </head>
 
-
-<body data-base-href="../"
-      data-using-base-href="false">
-
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
 <div id="overlay-under-drawer"></div>
-
 <header id="title">
-  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../index.html">base32</a></li>
-    <li><a href="../encodings/encodings-library.html">encodings</a></li>
+    <li><a href="../encodings/">encodings.dart</a></li>
     <li class="self-crumb">Encoding enum</li>
   </ol>
   <div class="self-name">Encoding</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
 </header>
-
 <main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="encodings&#47;encodings-library-sidebar.html"
+    data-below-sidebar="encodings&#47;Encoding-enum-sidebar.html">
+    <div>
 
-
-  <div id="dartdoc-main-content" class="main-content">
-      <div>
-
-        <h1>
-          <span class="kind-enum">Encoding</span>
-          enum 
-    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+      <h1>
+        <span class="kind-enum">Encoding</span>
+        enum 
  
 
-        </h1>
-      </div>
+      </h1>
+    </div>
 
     
 
 
-    <section>
-      <dl class="dl-horizontal">
-        
+      <section>
+        <dl class="dl-horizontal">
+          
   <dt>Inheritance</dt>
   <dd>
     <ul class="gt-separated dark eNum-relationships">
-      <li><a href="https://api.dart.dev/stable/2.17.3/dart-core/Object-class.html">Object</a></li>
-        <li><a href="https://api.dart.dev/stable/2.17.3/dart-core/Enum-class.html">Enum</a></li>
+      <li><a href="https://api.dart.dev/stable/3.8.3/dart-core/Object-class.html">Object</a></li>
+        <li><a href="https://api.dart.dev/stable/3.8.3/dart-core/Enum-class.html">Enum</a></li>
       <li>Encoding</li>
     </ul>
   </dd>
 
-        
-        
-        
-      </dl>
-    </section>
-
-    
-  <section class="summary offset-anchor" id="constructors">
-    <h2>Constructors</h2>
-
-    <dl class="constructor-summary-list">
-        <dt id="Encoding" class="callable">
-          <span class="name"><a href="../encodings/Encoding/Encoding.html">Encoding</a></span><span class="signature">()</span>
-        </dt>
-        <dd>
           
-            <div class="constructor-modifier features">const</div>
-        </dd>
-    </dl>
-  </section>
+          
+          
+  <dt>Available extensions</dt>
+  <dd><ul class="comma-separated clazz-relationships">
+      <li><a href="https://api.dart.dev/stable/3.8.3/dart-core/EnumName.html">EnumName</a></li>
+  </ul></dd>
+          
 
-    <section class="summary offset-anchor" id="values">
-      <h2>Values</h2>
 
-      <dl class="properties">
-          <dt id="standardRFC4648" class="constant">
+        </dl>
+      </section>
+
+      <section class="summary offset-anchor" id="values">
+        <h2>Values</h2>
+        <dl class="properties">
+            <dt id="standardRFC4648" class="constant">
     <span class="name ">standardRFC4648</span>
   <span class="signature">&#8594; const <a href="../encodings/Encoding.html">Encoding</a></span>
   
@@ -104,12 +98,9 @@
   
   
 
-  <div>
-    <span class="signature"><code>const Encoding(0)</code></span>
-  </div>
 </dd>
 
-          <dt id="base32Hex" class="constant">
+            <dt id="base32Hex" class="constant">
     <span class="name ">base32Hex</span>
   <span class="signature">&#8594; const <a href="../encodings/Encoding.html">Encoding</a></span>
   
@@ -119,12 +110,9 @@
   
   
 
-  <div>
-    <span class="signature"><code>const Encoding(1)</code></span>
-  </div>
 </dd>
 
-          <dt id="crockford" class="constant">
+            <dt id="crockford" class="constant">
     <span class="name ">crockford</span>
   <span class="signature">&#8594; const <a href="../encodings/Encoding.html">Encoding</a></span>
   
@@ -134,12 +122,9 @@
   
   
 
-  <div>
-    <span class="signature"><code>const Encoding(2)</code></span>
-  </div>
 </dd>
 
-          <dt id="zbase32" class="constant">
+            <dt id="zbase32" class="constant">
     <span class="name ">zbase32</span>
   <span class="signature">&#8594; const <a href="../encodings/Encoding.html">Encoding</a></span>
   
@@ -149,12 +134,9 @@
   
   
 
-  <div>
-    <span class="signature"><code>const Encoding(3)</code></span>
-  </div>
 </dd>
 
-          <dt id="geohash" class="constant">
+            <dt id="geohash" class="constant">
     <span class="name ">geohash</span>
   <span class="signature">&#8594; const <a href="../encodings/Encoding.html">Encoding</a></span>
   
@@ -164,12 +146,9 @@
   
   
 
-  <div>
-    <span class="signature"><code>const Encoding(4)</code></span>
-  </div>
 </dd>
 
-          <dt id="nonStandardRFC4648Lower" class="constant">
+            <dt id="nonStandardRFC4648Lower" class="constant">
     <span class="name ">nonStandardRFC4648Lower</span>
   <span class="signature">&#8594; const <a href="../encodings/Encoding.html">Encoding</a></span>
   
@@ -179,57 +158,71 @@
   
   
 
-  <div>
-    <span class="signature"><code>const Encoding(5)</code></span>
-  </div>
 </dd>
 
-      </dl>
-    </section>
+        </dl>
+      </section>
 
-    <section
-        class="
-          summary
-          offset-anchorinherited"
-        id="instance-properties">
-      <h2>Properties</h2>
-
-      <dl class="properties">
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="instance-properties">
+    <h2>Properties</h2>
+    <dl class="properties">
         <dt id="hashCode" class="property inherited">
-  <span class="name"><a href="https://api.dart.dev/stable/2.17.3/dart-core/Object/hashCode.html">hashCode</a></span>
-  <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.17.3/dart-core/int-class.html">int</a></span> 
+  <span class="name"><a href="https://api.dart.dev/stable/3.8.3/dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="https://api.dart.dev/stable/3.8.3/dart-core/int-class.html">int</a></span>
+  
 
 </dt>
 <dd class="inherited">
   The hash code for this object.
-  <div class="features">read-only, inherited</div>
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
 
 </dd>
 
         <dt id="index" class="property inherited">
-  <span class="name"><a href="https://api.dart.dev/stable/2.17.3/dart-core/Enum/index.html">index</a></span>
-  <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.17.3/dart-core/int-class.html">int</a></span> 
+  <span class="name"><a href="https://api.dart.dev/stable/3.8.3/dart-core/Enum/index.html">index</a></span>
+  <span class="signature">&#8594; <a href="https://api.dart.dev/stable/3.8.3/dart-core/int-class.html">int</a></span>
+  
 
 </dt>
 <dd class="inherited">
   A numeric identifier for the enumerated value.
-  <div class="features">read-only, inherited</div>
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="name" class="property">
+  <span class="name"><a href="https://api.dart.dev/stable/3.8.3/dart-core/EnumName/name.html">name</a></span>
+  <span class="signature">&#8594; <a href="https://api.dart.dev/stable/3.8.3/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.dart.dev/stable/3.8.3/dart-core/Enum-class.html">Enum</a>,
+        provided by the <a href="https://api.dart.dev/stable/3.8.3/dart-core/EnumName.html">EnumName</a> extension</span>
+      </p>
+  The name of the enum value.
+  <div class="features"><span class="feature">no setter</span></div>
 
 </dd>
 
         <dt id="runtimeType" class="property inherited">
-  <span class="name"><a href="https://api.dart.dev/stable/2.17.3/dart-core/Object/runtimeType.html">runtimeType</a></span>
-  <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.17.3/dart-core/Type-class.html">Type</a></span> 
+  <span class="name"><a href="https://api.dart.dev/stable/3.8.3/dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="https://api.dart.dev/stable/3.8.3/dart-core/Type-class.html">Type</a></span>
+  
 
 </dt>
 <dd class="inherited">
   A representation of the runtime type of the object.
-  <div class="features">read-only, inherited</div>
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
 
 </dd>
 
-      </dl>
-    </section>
+    </dl>
+  </section>
 
     
   <section
@@ -238,28 +231,28 @@
     <h2>Methods</h2>
     <dl class="callables">
         <dt id="noSuchMethod" class="callable inherited">
-  <span class="name"><a href="https://api.dart.dev/stable/2.17.3/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.17.3/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+  <span class="name"><a href="https://api.dart.dev/stable/3.8.3/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.8.3/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
     <span class="returntype parameter">&#8594; dynamic</span>
   </span>
   
 
 </dt>
 <dd class="inherited">
-  Invoked when a non-existent method or property is accessed.
-  <div class="features">inherited</div>
+  Invoked when a nonexistent method or property is accessed.
+  <div class="features"><span class="feature">inherited</span></div>
 
 </dd>
 
         <dt id="toString" class="callable inherited">
-  <span class="name"><a href="https://api.dart.dev/stable/2.17.3/dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.17.3/dart-core/String-class.html">String</a></span>
+  <span class="name"><a href="https://api.dart.dev/stable/3.8.3/dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/3.8.3/dart-core/String-class.html">String</a></span>
   </span>
   
 
 </dt>
 <dd class="inherited">
   A string representation of this object.
-  <div class="features">inherited</div>
+  <div class="features"><span class="feature">inherited</span></div>
 
 </dd>
 
@@ -272,15 +265,15 @@
     <h2>Operators</h2>
     <dl class="callables">
         <dt id="operator ==" class="callable inherited">
-  <span class="name"><a href="https://api.dart.dev/stable/2.17.3/dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.17.3/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.17.3/dart-core/bool-class.html">bool</a></span>
+  <span class="name"><a href="https://api.dart.dev/stable/3.8.3/dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.8.3/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/3.8.3/dart-core/bool-class.html">bool</a></span>
   </span>
   
 
 </dt>
 <dd class="inherited">
   The equality operator.
-  <div class="features">inherited</div>
+  <div class="features"><span class="feature">inherited</span></div>
 
 </dd>
 
@@ -292,11 +285,10 @@
 
   <section class="summary offset-anchor" id="constants">
     <h2>Constants</h2>
-
     <dl class="properties">
         <dt id="values" class="constant">
     <span class="name "><a href="../encodings/Encoding/values-constant.html">values</a></span>
-  <span class="signature">&#8594; const <a href="https://api.dart.dev/stable/2.17.3/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../encodings/Encoding.html">Encoding</a></span>&gt;</span></span>
+  <span class="signature">&#8594; const <a href="https://api.dart.dev/stable/3.8.3/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../encodings/Encoding.html">Encoding</a></span>&gt;</span></span>
   
 
 </dt>
@@ -304,103 +296,42 @@
   A constant List of the values in this enum, in order of their declaration.
   
 
-  <div>
-    <span class="signature"><code>[standardRFC4648, base32Hex, crockford, zbase32, geohash, nonStandardRFC4648Lower]</code></span>
-  </div>
 </dd>
 
     </dl>
   </section>
-  </div><!-- /.main-content -->
-
-  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
-    <header id="header-search-sidebar" class="hidden-l">
+</div><!-- /.main-content -->
+<div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+  <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
     <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
 </header>
-
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
-  <li><a href="../index.html">base32</a></li>
-  <li><a href="../encodings/encodings-library.html">encodings</a></li>
-  <li class="self-crumb">Encoding enum</li>
+    <li><a href="../index.html">base32</a></li>
+    <li><a href="../encodings/">encodings</a></li>
+    <li class="self-crumb">Encoding enum</li>
 </ol>
 
-
-    <h5>encodings library</h5>
-    <ol>
-  <li class="section-title"><a href="../encodings/encodings-library.html#classes">Classes</a></li>
-  <li><a href="../encodings/EncodingUtils-class.html">EncodingUtils</a></li>
-
-
-
-
-
-
-  <li class="section-title"><a href="../encodings/encodings-library.html#enums">Enums</a></li>
-  <li><a href="../encodings/Encoding.html">Encoding</a></li>
-
-
-</ol>
-
-  </div>
-
-  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
-    <ol>
-
-        <li class="section-title"><a href="../encodings/Encoding.html#constructors">Constructors</a></li>
-          <li><a href="../encodings/Encoding/Encoding.html">Encoding</a></li>
-
-    <li class="section-title"><a href="../encodings/Encoding.html#values">Values</a></li>
-    <li><a href="../encodings/Encoding.html#standardRFC4648">standardRFC4648</a></li>
-    <li><a href="../encodings/Encoding.html#base32Hex">base32Hex</a></li>
-    <li><a href="../encodings/Encoding.html#crockford">crockford</a></li>
-    <li><a href="../encodings/Encoding.html#zbase32">zbase32</a></li>
-    <li><a href="../encodings/Encoding.html#geohash">geohash</a></li>
-    <li><a href="../encodings/Encoding.html#nonStandardRFC4648Lower">nonStandardRFC4648Lower</a></li>
-
-    <li class="section-title inherited">
-      <a href="../encodings/Encoding.html#instance-properties">Properties</a>
-    </li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.17.3/dart-core/Object/hashCode.html">hashCode</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.17.3/dart-core/Enum/index.html">index</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.17.3/dart-core/Object/runtimeType.html">runtimeType</a></li>
-
-    <li class="section-title inherited"><a href="../encodings/Encoding.html#instance-methods">Methods</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.17.3/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.17.3/dart-core/Object/toString.html">toString</a></li>
-
-    <li class="section-title inherited"><a href="../encodings/Encoding.html#operators">Operators</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.17.3/dart-core/Object/operator_equals.html">operator ==</a></li>
-
-
-
-
-        <li class="section-title"><a href="../encodings/Encoding.html#constants">Constants</a></li>
-          <li><a href="../encodings/Encoding/values-constant.html">values</a></li>
-</ol>
-
-  </div><!-- /.sidebar-offcanvas -->
-
+  <h5>encodings library</h5>
+  <div id="dartdoc-sidebar-left-content"></div>
+</div>
+<div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!-- /.sidebar-offcanvas -->
 </main>
-
 <footer>
   <span class="no-break">
     base32
-      2.1.3
+      2.2.0
   </span>
-
   
 </footer>
 
 
-
 <script src="../static-assets/highlight.pack.js?v1"></script>
-<script src="../static-assets/script.js?v1"></script>
-
-
+<script src="../static-assets/docs.dart.js"></script>
 
 </body>
-
 </html>
 

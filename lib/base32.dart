@@ -1,11 +1,9 @@
-library base32;
-
 import 'dart:typed_data';
 import 'package:base32/encodings.dart';
 
 // ignore: camel_case_types
 class base32 {
-  /// Takes in a [byteList] converts it to a Uint8List so that I can run
+  /// Takes in a [Uint8List] converts it to a Uint8List so that I can run
   /// bit operations on it, then outputs a [String] representation of the
   /// base32.
   static String encode(Uint8List bytesList,
@@ -89,7 +87,7 @@ class base32 {
           input[i].toRadixString(16).padLeft(2, '0')
       ].join();
 
-  /// Takes in a [hex] string, converts the string to a byte list
+  /// Takes in a hex [String], converts the string to a byte list
   /// and runs a normal encode() on it. Returning a [String] representation
   /// of the base32.
   static String encodeHexString(String b32hex,
@@ -130,7 +128,7 @@ class base32 {
 
     base32 = _pad(base32, encoding: encoding);
 
-    if (!_isValid(base32, encoding: encoding)) {
+    if (!isValid(base32, encoding: encoding)) {
       throw FormatException('Invalid Base32 characters');
     }
 
@@ -200,7 +198,9 @@ class base32 {
     return Uint8List.fromList(bytes);
   }
 
-  static bool _isValid(String b32str,
+  /// Validates a Base32 string based on the encoding type.
+  /// Returns true if the string is valid, false otherwise.
+  static bool isValid(String b32str,
       {Encoding encoding = Encoding.standardRFC4648}) {
     var regex = EncodingUtils.getRegex(encoding);
     // Only check even length for encodings that use padding
